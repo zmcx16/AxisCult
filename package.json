@@ -1,0 +1,43 @@
+{
+	"name": "axiscult.zmcx16.moe",
+	"description": "Axis Cult! Join Axit Cult!!!",
+	"private": true,
+	"author": "zmcx16",
+	"version": "1.0.0",
+	"repository": "https://github.com/zmcx16/AxisCult-Dev",
+	"homepage": "https://github.com/zmcx16/AxisCult-Dev",
+	"scripts": {
+		"build": "gulp build",
+		"serve": "gulp serve"
+	},
+	"dependencies": {
+		"@babel/polyfill": "^7.6.0",
+		"babel-loader": "^8.0.6",
+		"howler": "^2.1.2",
+		"js-yaml": "^3.13.1",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"webpack": "^4.41.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/preset-env": "^7.6.3",
+		"autoprefixer": "^9.7.0",
+		"babel-preset-react": "^6.24.1",
+		"browser-sync": "^2.26.7",
+		"del": "^5.1.0",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-csso": "^3.0.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-if": "^3.0.0",
+		"gulp-postcss": "^8.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-uglify": "^3.0.2",
+		"node-sass": "^4.13.0",
+		"through2": "^3.0.1",
+		"webpack-stream": "^5.2.1"
+	}
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.scss","common.scss"],"names":[],"mappings":"AAAA,IAAI,CAAA;EACA,UAAU,EAAE,wBAAwB,GACvC;;ACFD","file":"bundle.css","sourcesContent":["body{\r\n    background: rgba(255, 225, 0, 0.666);\r\n}","$translucent-white: rgba(255,255,255,0.3);\r\n"]}
