@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 
 import LoginBox from "../components/loginBox"
 import SwitchLang from "../components/switchLang"
+import AudioPlayer from "../components/audioPlayer"
 
 import en from '../i18n/en.js';
 import zh from '../i18n/zh.js';
@@ -54,6 +55,7 @@ const IndexPage = () => {
         </div>
         <Link to="/page-2/">Go to page 2</Link>
         <LoginBox />
+        <AudioPlayer />
         <SwitchLang setLocale={setLocale} />
       </Layout>
     </IntlProvider>
