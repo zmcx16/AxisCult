@@ -10,6 +10,22 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useIntl, defineMessages  } from "react-intl"
 
+import Common from "../components/common"
+
+// local function
+function getHrefLang() {
+  let hreflangs = []
+  Common.support_langs.forEach(element => {
+    hreflangs.push({
+      rel: "alternate",
+      href: "https://" + window.location.hostname + "/#" + element,
+      hreflang: element,
+    })
+  })
+
+  return hreflangs
+}
+
 function SEO({ lang }) {
 
   const messages = defineMessages({
@@ -70,6 +86,7 @@ function SEO({ lang }) {
           content: description,
         },
       ]}
+      link={getHrefLang()}
     />
   )
 }
