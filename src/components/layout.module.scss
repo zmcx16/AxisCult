@@ -3,12 +3,14 @@
   src: url('../fonts/Konosuba-ko.woff') format("woff");
 }
 
+body{
+  margin: 0;
+}
+
 h1{
   font-family: 'Comic Sans', 'Comic Sans MS';
 }
 
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1.0875rem 1.45rem;
+  margin: 0;
 }

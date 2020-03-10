@@ -1,0 +1,13 @@
+.contentContainer{
+  display: block;
+}
+
+.section:nth-child(even) {
+    background-color: #eaecee;
+    min-height: 500px;
+}
+
+.section:nth-child(odd) {
+    background-color: #f5f7f9;
+    min-height: 500px;
+}
