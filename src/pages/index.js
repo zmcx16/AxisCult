@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { IntlProvider, FormattedMessage } from "react-intl"
+import { StylesProvider } from "@material-ui/core/styles"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -45,23 +46,25 @@ const IndexPage = () => {
   const [lang, l10n_messages] = getLang(locale)
 
   return (
-    <IntlProvider locale={lang} key={lang} defaultLocale="en" messages={l10n_messages}>
-      <Layout>
-        <SEO lang={lang} />
-        <Content />
-        <h1><FormattedMessage id="app.hi" values={{ name: 'React' }} /></h1>
-        <h1><FormattedMessage id="siteMetadata.title"/></h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-          <Image />
-        </div>
-        <Link to="/page-2/">Go to page 2</Link>
-        <LoginBox />
-        <AudioPlayer />
-        <SwitchLang setLocale={setLocale} />
-      </Layout>
-    </IntlProvider>
+    <StylesProvider injectFirst>
+      <IntlProvider locale={lang} key={lang} defaultLocale="en" messages={l10n_messages}>
+        <Layout>
+          <SEO lang={lang} />
+          <Content />
+          <h1><FormattedMessage id="app.hi" values={{ name: 'React' }} /></h1>
+          <h1><FormattedMessage id="siteMetadata.title"/></h1>
+          <p>Welcome to your new Gatsby site.</p>
+          <p>Now go build something great.</p>
+          <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+            <Image />
+          </div>
+          <Link to="/page-2/">Go to page 2</Link>
+          <LoginBox />
+          <AudioPlayer />
+          <SwitchLang setLocale={setLocale} />
+        </Layout>
+      </IntlProvider>
+    </StylesProvider>
   )
 }
 
