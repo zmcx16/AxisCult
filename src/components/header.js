@@ -6,7 +6,7 @@ import LangSelect from "./langSelect"
 
 import headerStyle from "./header.module.scss"
 
-const Header = () => {
+const Header = ({ use_lang, setLocale }) => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -24,7 +24,7 @@ const Header = () => {
     <div className={headerStyle.kanbanContainer}>
       <div className={headerStyle.kanbanOverlay}>
         <div className={headerStyle.footer}>
-          <LangSelect defaultLang='en'/>
+          <LangSelect use_lang={use_lang} setLocale={setLocale}/>
         </div>
       </div>
       <Img fluid={data.placeholderImage.childImageSharp.fluid} className={headerStyle.kanbanImg} style={{ position: "fixed" }} />

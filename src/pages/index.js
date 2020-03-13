@@ -6,6 +6,7 @@ import { StylesProvider } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Header from "../components/header"
 import Content from "../components/content"
 
 import LoginBox from "../components/loginBox"
@@ -14,7 +15,8 @@ import AudioPlayer from "../components/audioPlayer"
 
 
 import en from '../i18n/en.js';
-import zh from '../i18n/zh.js';
+import zh_tw from '../i18n/zh-tw.js';
+import isekai from '../i18n/isekai.js';
 
 import Common from "../components/common"
 
@@ -34,22 +36,25 @@ function getLang(locale){
   }
 
   if (use_lang.includes('zh')) {
-    return [use_lang, zh]
-  } 
-    
-  return [use_lang, en]
+    return [use_lang, zh_tw]
+  } else if (use_lang.includes('isekai')){
+    return [use_lang, isekai]
+  }
+
+  return ['en', en]
 }
 
 const IndexPage = () => {
 
   const [locale, setLocale] = useState(navigator.language)
-  const [lang, l10n_messages] = getLang(locale)
+  const [use_lang, l10n_messages] = getLang(locale)
 
   return (
     <StylesProvider injectFirst>
-      <IntlProvider locale={lang} key={lang} defaultLocale="en" messages={l10n_messages}>
+      <IntlProvider locale={use_lang} key={use_lang} defaultLocale="en" messages={l10n_messages}>
         <Layout>
-          <SEO lang={lang} />
+          <SEO use_lang={use_lang} />
+          <Header use_lang={use_lang} setLocale={setLocale}/>
           <Content />
           <h1><FormattedMessage id="app.hi" values={{ name: 'React' }} /></h1>
           <h1><FormattedMessage id="siteMetadata.title"/></h1>
