@@ -5,18 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+
+import Content from "../components/content"
+import Header from "../components/header"
 
 import layoutStyle from "./layout.module.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, use_lang, setLocale, langFont, setLangFont} ) => {
   
   return (
     <>
       <div className={layoutStyle.container}>
-        
+        <Header use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont} />
+        <Content />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

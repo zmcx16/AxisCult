@@ -3,6 +3,15 @@
   src: url('../fonts/Konosuba-ko.woff') format("woff");
 }
 
+.defaultFont{
+  font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
+}
+
+.isekaiFont{
+  font-family: 'Konosuba-ko';
+  font-weight: bold;
+}
+
 body{
   margin: 0;
 }

@@ -1,5 +1,5 @@
 const common = {
-    support_langs: ['en', 'zh']
+    support_langs: ['en', 'zh-TW', 'isekai']
 }
 
-export default common;
+export default common

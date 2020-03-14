@@ -6,8 +6,6 @@ import { StylesProvider } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import Header from "../components/header"
-import Content from "../components/content"
 
 import LoginBox from "../components/loginBox"
 import SwitchLang from "../components/switchLang"
@@ -19,6 +17,8 @@ import zh_tw from '../i18n/zh-tw.js';
 import isekai from '../i18n/isekai.js';
 
 import Common from "../components/common"
+
+import layoutStyle from "../components/layout.module.scss"
 
 // local function
 function getLang(locale){
@@ -35,7 +35,7 @@ function getLang(locale){
     use_lang = locale;
   }
 
-  if (use_lang.includes('zh')) {
+  if (use_lang.includes('zh-TW')) {
     return [use_lang, zh_tw]
   } else if (use_lang.includes('isekai')){
     return [use_lang, isekai]
@@ -48,14 +48,15 @@ const IndexPage = () => {
 
   const [locale, setLocale] = useState(navigator.language)
   const [use_lang, l10n_messages] = getLang(locale)
+  const [langFont, setLangFont] = useState( use_lang.includes('isekai') ? layoutStyle.isekaiFont : layoutStyle.defaultFont)
+
+  console.log("langFont:" + langFont)
 
   return (
     <StylesProvider injectFirst>
       <IntlProvider locale={use_lang} key={use_lang} defaultLocale="en" messages={l10n_messages}>
-        <Layout>
-          <SEO use_lang={use_lang} />
-          <Header use_lang={use_lang} setLocale={setLocale}/>
-          <Content />
+        <SEO use_lang={use_lang} />
+        <Layout use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont}>
           <h1><FormattedMessage id="app.hi" values={{ name: 'React' }} /></h1>
           <h1><FormattedMessage id="siteMetadata.title"/></h1>
           <p>Welcome to your new Gatsby site.</p>
