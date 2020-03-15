@@ -4,8 +4,10 @@ const zh_TW = {
   'siteMetadata.description': `就是現在! 加入阿克西斯教吧!!!`,
   'siteMetadata.author': `@zmcx16`,
 
-  'langSelectTipsText1': `點擊這裡切換網頁語系`,
-  'langSelectTipsText2': `也支援異世界語喔!`
+  'langSelectTips.text1': `點擊這裡切換網頁語系。`,
+  'langSelectTips.text2': `也支援異世界語喔!`,
+  'marquee.text1': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`,
+  'marquee.text2': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`
 }
 
 export default zh_TW;

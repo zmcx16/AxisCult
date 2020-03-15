@@ -1,27 +1,20 @@
 import React from "react"
+
+import Marquee from "../components/marquee"
+
 import contentStyle from "./content.module.scss"
 
-const Content = () => {
+const Content = ({langFont}) => {
   return (
     <div className={contentStyle.contentContainer}>
-      <div className={contentStyle.section}
-        style={{
-          minHeight: 500,
-        }}
-      >
+      <Marquee text_id={'marquee.text1'} langFont={langFont} />
+      <div className={contentStyle.section}>
       </div>
-      <div className={contentStyle.section}
-        style={{
-          minHeight: 500,
-        }}
-      >
+      <div className={contentStyle.section}>
       </div>
-      <div className={contentStyle.section}
-        style={{
-          minHeight: 500,
-        }}
-      >
+      <div className={contentStyle.section}>
       </div>
+      <Marquee text_id={'marquee.text2'} langFont={langFont} />
     </div>
   )
 }

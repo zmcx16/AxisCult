@@ -19,7 +19,7 @@ const Layout = ({ children, use_lang, setLocale, langFont, setLangFont} ) => {
     <>
       <div className={layoutStyle.container}>
         <Header use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont} />
-        <Content />
+        <Content langFont={langFont} />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

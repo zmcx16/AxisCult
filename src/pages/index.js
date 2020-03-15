@@ -6,6 +6,7 @@ import { StylesProvider } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import MissionaryModal from "../components/missionaryModal"
 
 import LoginBox from "../components/loginBox"
 import SwitchLang from "../components/switchLang"
@@ -69,6 +70,7 @@ const IndexPage = () => {
           <AudioPlayer />
           <SwitchLang setLocale={setLocale} />
         </Layout>
+        <MissionaryModal langFont={langFont} use_lang={use_lang}/>
       </IntlProvider>
     </StylesProvider>
   )

@@ -59,6 +59,7 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
 
     if (event.target.value === 'zh-TW') {
       setLocale('zh-Hant')
+      setLangFont(layoutStyle.defaultFont)
       window.history.pushState("", "", '#zh-TW')
 
     } else if (event.target.value === 'isekai') {
@@ -72,7 +73,6 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
       window.history.pushState("", "", '#en')
     }
 
-    console.log(event.target.value)
     setLang(event.target.value)
   }
 
@@ -106,9 +106,9 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
     <>
       <div className={langTipDisplay ? langSelectStyle.langTip : langSelectStyle.hidden}>
         <span className={langFont}>
-          <FormattedMessage id="langSelectTipsText1" />
+          <FormattedMessage id="langSelectTips.text1" />
           <br />
-          <FormattedMessage id="langSelectTipsText2" />
+          <FormattedMessage id="langSelectTips.text2" />
         </span>
         <div className={langSelectStyle.closeBtn} onClick={handleClose}>x</div>
       </div>
