@@ -1,6 +1,7 @@
 import React from "react"
 
 import Marquee from "../components/marquee"
+import IntroAxis from "../components/introAxis"
 
 import contentStyle from "./content.module.scss"
 
@@ -9,6 +10,7 @@ const Content = ({langFont}) => {
     <div className={contentStyle.contentContainer}>
       <Marquee text_id={'marquee.text1'} langFont={langFont} />
       <div className={contentStyle.section}>
+        <IntroAxis />
       </div>
       <div className={contentStyle.section}>
       </div>

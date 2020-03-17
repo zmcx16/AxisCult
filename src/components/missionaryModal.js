@@ -95,6 +95,9 @@ export default function MissionaryModal({ langFont, use_lang }) {
         <Fade in={open}>
           <div className={classes.paper}>
             <Img fluid={applicationForm.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} />
+            <div className={missionaryModalStyle.textfield}>
+              test
+            </div>
           </div>
         </Fade>
       </Modal>

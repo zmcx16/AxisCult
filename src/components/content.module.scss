@@ -2,6 +2,26 @@
   display: block;
 }
 
+.section {
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    padding: 0 10px;
+    background: #fff;
+    color: #404040;
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    border-bottom: solid 2px #ddd;
+}
+
 .section:nth-child(even) {
     background-color: #eaecee;
     min-height: 500px;
