@@ -7,7 +7,8 @@ const en = {
   'langSelectTips.text1': `Click here to switch the language to view the website.`,
   'langSelectTips.text2': `We also support the language of the fantasy world!`,
   'marquee.text1': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
-  'marquee.text2': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`
+  'marquee.text2': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
+  'alcanretiaImg1.caption': `Alcanretia: The headquarters of the Axis Cutl`
 }
 
 export default en;

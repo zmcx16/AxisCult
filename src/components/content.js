@@ -10,7 +10,7 @@ const Content = ({langFont}) => {
     <div className={contentStyle.contentContainer}>
       <Marquee text_id={'marquee.text1'} langFont={langFont} />
       <div className={contentStyle.section}>
-        <IntroAxis />
+        <IntroAxis langFont={langFont}/>
       </div>
       <div className={contentStyle.section}>
       </div>

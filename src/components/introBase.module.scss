@@ -1,0 +1,30 @@
+.leftImg{
+  height: -webkit-fill-available;
+  width: 50%;
+  left: 0;
+  position: absolute;
+}
+
+.imgBlock{
+  position: static !important;
+}
+
+.rightText{
+  width: 50%;
+  max-width: 512px;
+  margin: 0 10px;
+  position: absolute;
+  right: 50%;
+  left: 50%;
+}
+
+.ImgCaption{
+  position: absolute;
+  text-align: center;
+  left: 100px;
+  right: 100px;
+  bottom: 50px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 5px;
+  line-height: 26px;
+}

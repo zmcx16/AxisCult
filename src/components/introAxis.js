@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
 
+import introBaseStyle from "./introBase.module.scss"
 import introAxisStyle from "./introAxis.module.scss"
 
 const introImgs = [
   {
-    imgKey: "demo1",
-    textKey: ""
+    imgFileName: "alcanretia1.jpg",
+    captionKey: "alcanretiaImg1.caption"
   },
   {
-    imgKey: "demo2",
-    textKey: ""
+    imgFileName: "alcanretia2.jpg",
+    captionKey: ""
   },
   {
-    imgKey: "demo3",
-    textKey: ""
+    imgFileName: "alcanretia3.jpg",
+    captionKey: ""
   },
   {
-    imgKey: "demo4",
-    textKey: ""
+    imgFileName: "alcanretia4.jpg",
+    captionKey: ""
   }
 ]
 
@@ -45,19 +46,30 @@ function IntroAxis({ langFont }) {
     }
   `)    
 
-  const introImg = data.images.edges.find(n => {
-    return n.node.relativePath.includes("arukakantia1.jpg");
+  var introImgNodes = []
+  introImgs.forEach(function (element) {
+    introImgNodes.push(data.images.edges.find(n => {
+      return n.node.relativePath.includes(element.imgFileName);
+    }))
   });
+
+  var introImgCaption = introImgs[0].captionKey
 
   return (
     <>
-      <div className={introAxisStyle.leftImg}>
-        <Img fluid={introImg.node.childImageSharp.fluid} className={introAxisStyle.imgBlock} />
-	  </div>
-      <div className={introAxisStyle.rightText}>
-		<h2>Join the Axis Cult today!!</h2>
-		  <p><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b><br />The Axis Cult is location on city.</p>
-		<span>Look the beautiful world.</span>
+      <div className={introBaseStyle.leftImg}>
+        <Img fluid={introImgNodes[0].node.childImageSharp.fluid} className={introBaseStyle.imgBlock} />
+        <Img fluid={introImgNodes[1].node.childImageSharp.fluid} className={introBaseStyle.imgBlock} />
+        <span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={introImgCaption} /></span>
+	    </div>
+      <div className={introBaseStyle.rightText}>
+        <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
+            <p><br />The Axis Cult is location on city.</p>
+        <h2><b>Join the Axis Cult today!!</b></h2>
+	    	<span>Look the beautiful world.</span>
+        <button onClick={() => {
+
+        }}>test</button>
       </div>
     </>
   )
