@@ -8,20 +8,24 @@ import introAxisStyle from "./introAxis.module.scss"
 
 const introImgs = [
   {
+    id: "intro1",
     imgFileName: "alcanretia1.jpg",
     captionKey: "alcanretiaImg1.caption"
   },
   {
+    id: "intro2",
     imgFileName: "alcanretia2.jpg",
-    captionKey: ""
+    captionKey: "alcanretiaImg2.caption"
   },
   {
+    id: "intro3",
     imgFileName: "alcanretia3.jpg",
-    captionKey: ""
+    captionKey: "alcanretiaImg3.caption"
   },
   {
+    id: "intro4",
     imgFileName: "alcanretia4.jpg",
-    captionKey: ""
+    captionKey: "alcanretiaImg4.caption"
   }
 ]
 
@@ -46,21 +50,37 @@ function IntroAxis({ langFont }) {
     }
   `)    
 
+  const [nowImgIndex, setNowImgIndex] = useState(0)
+  
+
+  var introImgNodesStyle = {}
+  introImgs.forEach(function (element, index) {
+    if(index === nowImgIndex){
+      introImgNodesStyle[element.id] = "block"
+    }
+    else{
+      introImgNodesStyle[element.id] = "none"
+    }
+  })
+  const [introImgStyle, setIntroImgStyle] = useState(introImgNodesStyle)
+
+
   var introImgNodes = []
   introImgs.forEach(function (element) {
-    introImgNodes.push(data.images.edges.find(n => {
+    const imgNode = data.images.edges.find(n => {
       return n.node.relativePath.includes(element.imgFileName);
-    }))
-  });
+    })
+    
+    introImgNodes.push(<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} style={{ display: introImgStyle[element.id] }} />)
+  })
 
-  var introImgCaption = introImgs[0].captionKey
+  const [introImgCaption, setIntroImgCaption] = useState(<FormattedMessage id={introImgs[nowImgIndex].captionKey} />)
 
   return (
     <>
       <div className={introBaseStyle.leftImg}>
-        <Img fluid={introImgNodes[0].node.childImageSharp.fluid} className={introBaseStyle.imgBlock} />
-        <Img fluid={introImgNodes[1].node.childImageSharp.fluid} className={introBaseStyle.imgBlock} />
-        <span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={introImgCaption} /></span>
+        {introImgNodes}
+        <span className={introBaseStyle.ImgCaption + ' ' + langFont}>{introImgCaption}</span>
 	    </div>
       <div className={introBaseStyle.rightText}>
         <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
@@ -68,7 +88,17 @@ function IntroAxis({ langFont }) {
         <h2><b>Join the Axis Cult today!!</b></h2>
 	    	<span>Look the beautiful world.</span>
         <button onClick={() => {
-
+          const changeIndex = (nowImgIndex + 1) % introImgs.length
+          setIntroImgCaption(<FormattedMessage id={introImgs[changeIndex].captionKey} />)
+          
+          var imgStyle = {introImgStyle}
+          console.log(imgStyle)
+          imgStyle.introImgStyle[introImgs[nowImgIndex].id] = "none"
+          imgStyle.introImgStyle[introImgs[changeIndex].id] = "block"
+          console.log(imgStyle)
+          setIntroImgStyle(imgStyle.introImgStyle)
+          
+          setNowImgIndex(changeIndex)
         }}>test</button>
       </div>
     </>
