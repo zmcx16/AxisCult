@@ -23,6 +23,9 @@ const Header = ({ use_lang, setLocale, langFont, setLangFont }) => {
   return (
     <div className={headerStyle.kanbanContainer}>
       <div className={headerStyle.kanbanOverlay}>
+        <h1 className={headerStyle.headerText1 + ' ' + langFont}>歡迎你, 迷途的小羔羊阿</h1>
+        <h1 className={headerStyle.headerText2 + ' ' + langFont}>來傾訴你的罪孽吧</h1>
+        <h1 className={headerStyle.headerText3 + ' ' + langFont}>阿克婭女神肯定會聽到, 並賜予你救贖</h1>
         <div className={headerStyle.footer}>
           <LangSelect use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont}/>
         </div>

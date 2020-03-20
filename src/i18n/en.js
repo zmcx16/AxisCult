@@ -10,10 +10,10 @@ const en = {
   'marquee.text2': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
   'alcanretia.text': `Alcanretia`,
   'axisCult.text': `Axis Cult`,
-  'alcanretiaImg1.caption': `The headquarters of the Axis Cult: {alcanretia}`,
-  'alcanretiaImg2.caption': `The city of water and hot springs (1)`,
-  'alcanretiaImg3.caption': `The city of water and hot springs (2)`,
-  'alcanretiaImg4.caption': `The church headquarters of {axisCult}`
+  'introAxis1.caption': `The adventurer A who desperate for life`,
+  'introAxis2.caption': `The archmage B who is severely frustrated`,
+  'introAxis3.caption': `The cross knight C suffering from X addiction`,
+  'introAxis4.caption': `Want to get salvation? Join Axis Cult now!`
 }
 
 export default en;

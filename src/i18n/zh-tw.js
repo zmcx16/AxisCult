@@ -10,10 +10,10 @@ const zh_TW = {
   'marquee.text2': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`,
   'alcanretia.text': `阿爾坎雷堤亞`,
   'axisCult.text': `阿克西斯教團`,    
-  'alcanretiaImg1.caption': `阿克西斯教團總部所在地: {alcanretia}`,
-  'alcanretiaImg2.caption': `水與溫泉之都 (1)`,
-  'alcanretiaImg3.caption': `水與溫泉之都 (2)`,
-  'alcanretiaImg4.caption': `{axisCult} 總部`
+  'introAxis1.caption': `對人生感到絕望的冒險者A`,
+  'introAxis2.caption': `精神嚴重受挫的大法師B`,
+  'introAxis3.caption': `受X癖好所苦的十字騎士C`,
+  'introAxis4.caption': `想要獲得救贖嗎? 那就快加入阿克西斯教吧!!`
 }
 
 export default zh_TW;
