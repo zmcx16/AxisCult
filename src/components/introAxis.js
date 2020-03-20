@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
+import { useTransition, animated } from 'react-spring'
 
 import introBaseStyle from "./introBase.module.scss"
-import introAxisStyle from "./introAxis.module.scss"
 
 const introImgs = [
   {
@@ -53,52 +53,43 @@ function IntroAxis({ langFont }) {
   const [nowImgIndex, setNowImgIndex] = useState(0)
   
 
-  var introImgNodesStyle = {}
-  introImgs.forEach(function (element, index) {
-    if(index === nowImgIndex){
-      introImgNodesStyle[element.id] = "block"
-    }
-    else{
-      introImgNodesStyle[element.id] = "none"
-    }
-  })
-  const [introImgStyle, setIntroImgStyle] = useState(introImgNodesStyle)
-
-
   var introImgNodes = []
   introImgs.forEach(function (element) {
     const imgNode = data.images.edges.find(n => {
       return n.node.relativePath.includes(element.imgFileName);
     })
     
-    introImgNodes.push(<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} style={{ display: introImgStyle[element.id] }} />)
+    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} fadeIn={false} />)
+    const imgCaptionObj = (<span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={element.captionKey} values={{ alcanretia: <b><FormattedMessage id='alcanretia.text' /></b>, axisCult: <b><FormattedMessage id='axisCult.text' /></b> }} /></span>)
+
+    introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgCaptionObj}</animated.div>)
   })
 
-  const [introImgCaption, setIntroImgCaption] = useState(<FormattedMessage id={introImgs[nowImgIndex].captionKey} />)
+  const onClick = useCallback(
+    () => setNowImgIndex(state => (state + 1) % 4), []
+  )
+  const transitions = useTransition(nowImgIndex, p => p, {
+    from: { opacity: 0, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+    enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+    leave: { opacity: 0, transform: 'translate3d(-100%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+    config: { duration: 600 }
+  })
 
   return (
     <>
-      <div className={introBaseStyle.leftImg}>
-        {introImgNodes}
-        <span className={introBaseStyle.ImgCaption + ' ' + langFont}>{introImgCaption}</span>
-	    </div>
+      <div className={introBaseStyle.leftImg} onClick={onClick}>
+        {transitions.map(({ item, props, key }) => {
+          const Page = introImgNodes[item]
+          return <Page key={key} style={props} />
+        })}
+      </div>
+      
       <div className={introBaseStyle.rightText}>
         <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
             <p><br />The Axis Cult is location on city.</p>
         <h2><b>Join the Axis Cult today!!</b></h2>
 	    	<span>Look the beautiful world.</span>
         <button onClick={() => {
-          const changeIndex = (nowImgIndex + 1) % introImgs.length
-          setIntroImgCaption(<FormattedMessage id={introImgs[changeIndex].captionKey} />)
-          
-          var imgStyle = {introImgStyle}
-          console.log(imgStyle)
-          imgStyle.introImgStyle[introImgs[nowImgIndex].id] = "none"
-          imgStyle.introImgStyle[introImgs[changeIndex].id] = "block"
-          console.log(imgStyle)
-          setIntroImgStyle(imgStyle.introImgStyle)
-          
-          setNowImgIndex(changeIndex)
         }}>test</button>
       </div>
     </>

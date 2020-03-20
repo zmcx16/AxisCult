@@ -8,10 +8,12 @@ const zh_TW = {
   'langSelectTips.text2': `也支援異世界語喔!`,
   'marquee.text1': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`,
   'marquee.text2': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`,
-  'alcanretiaImg1.caption': `阿克西斯教團總部所在地: <b>阿爾坎雷堤亞</b>`,
+  'alcanretia.text': `阿爾坎雷堤亞`,
+  'axisCult.text': `阿克西斯教團`,    
+  'alcanretiaImg1.caption': `阿克西斯教團總部所在地: {alcanretia}`,
   'alcanretiaImg2.caption': `水與溫泉之都 (1)`,
   'alcanretiaImg3.caption': `水與溫泉之都 (2)`,
-  'alcanretiaImg4.caption': `<b>阿克西斯教團</b>總部`
+  'alcanretiaImg4.caption': `{axisCult} 總部`
 }
 
 export default zh_TW;

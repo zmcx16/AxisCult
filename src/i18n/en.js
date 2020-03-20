@@ -8,10 +8,12 @@ const en = {
   'langSelectTips.text2': `We also support the language of the fantasy world!`,
   'marquee.text1': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
   'marquee.text2': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
-  'alcanretiaImg1.caption': `The headquarters of the Axis Cutl: <b>Alcanretia</b>`,
+  'alcanretia.text': `Alcanretia`,
+  'axisCult.text': `Axis Cult`,
+  'alcanretiaImg1.caption': `The headquarters of the Axis Cult: {alcanretia}`,
   'alcanretiaImg2.caption': `The city of water and hot springs (1)`,
   'alcanretiaImg3.caption': `The city of water and hot springs (2)`,
-  'alcanretiaImg4.caption': `The church headquarters of <b>Axis Cutl</b>`
+  'alcanretiaImg4.caption': `The church headquarters of {axisCult}`
 }
 
 export default en;
