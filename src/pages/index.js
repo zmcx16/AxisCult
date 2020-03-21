@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import { IntlProvider, FormattedMessage } from "react-intl"
 import { StylesProvider } from "@material-ui/core/styles"
 
@@ -23,9 +22,15 @@ import layoutStyle from "../components/layout.module.scss"
 
 // local function
 function getLang(locale){
+
+  let href = ''
+  if (typeof window !== 'undefined') {
+    href = window.location.href
+  }
+
   let use_lang = null;
   Common.support_langs.some(function (lang) {
-    if (window.location.href.indexOf('#' + lang) !== -1) {  // use url lang first
+    if (href.indexOf('#' + lang) !== -1) {  // use url lang first
       use_lang = lang
       return true;
     }
@@ -47,7 +52,14 @@ function getLang(locale){
 
 const IndexPage = () => {
 
-  const [locale, setLocale] = useState(navigator.language)
+  // workaround: https://github.com/gatsbyjs/gatsby/issues/309 
+  // Server side rendering is by definition done on the “server” side, where “window” is not a thing.
+  let language = 'en'
+  if (typeof window !== 'undefined') {
+    language = navigator.language
+  }
+
+  const [locale, setLocale] = useState(language)
   const [use_lang, l10n_messages] = getLang(locale)
   const [langFont, setLangFont] = useState( use_lang.includes('isekai') ? layoutStyle.isekaiFont : layoutStyle.defaultFont)
 
@@ -65,7 +77,6 @@ const IndexPage = () => {
           <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
             <Image />
           </div>
-          <Link to="/page-2/">Go to page 2</Link>
           <LoginBox />
           <AudioPlayer />
           <SwitchLang setLocale={setLocale} />

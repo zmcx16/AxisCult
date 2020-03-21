@@ -1,35 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class AudioPlayer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            play: false,
-            pause: true,
-        }
-        this.url = '/sample.mp3';
-        this.audio = new Audio(this.url);
-    }
+function AudioPlayer({ langFont }) {
 
-    play = () => {
-        this.setState({ play: true, pause: false })
-        this.audio.play();
-    }
+  const url = '/sample.mp3'
 
-    pause = () => {
-        this.setState({ play: false, pause: true })
-        this.audio.pause();
-    }
+  const [audioPlayer, setAudioPlayer] = useState()
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
-    render() {
+  useEffect(() => {
+    setAudioPlayer(new Audio(url))
+  }, [])
 
-        return (
-            <div>
-                <button onClick={this.play}>Play</button>
-                <button onClick={this.pause}>Pause</button>
-            </div>
-        );
-    }
+  return (
+    <>
+      <button onClick={() => {
+        setIsPlaying(true)
+        audioPlayer.play();
+      }}>Play</button>
+      <button onClick={() => {
+        setIsPlaying(false)
+        audioPlayer.pause();
+      }}>Pause</button>
+    </>
+  )  
 }
 
 export default AudioPlayer

@@ -14,11 +14,17 @@ import Common from "../components/common"
 
 // local function
 function getHrefLang() {
+
+  let hostname = ''
+  if (typeof window !== 'undefined') {
+    hostname = window.location.hostname
+  }
+
   let hreflangs = []
   Common.support_langs.forEach(element => {
     hreflangs.push({
       rel: "alternate",
-      href: "https://" + window.location.hostname + "/#" + element,
+      href: "https://" + hostname + "/#" + element,
       hreflang: element,
     })
   })
