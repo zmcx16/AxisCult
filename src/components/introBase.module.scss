@@ -1,21 +1,39 @@
-.leftImg{
+@mixin imgBase{
   height: calc(100% - 10px);
   width: calc(50% - 10px);
-  left: 5px;
   position: absolute;
   cursor: pointer;
+}
+
+@mixin textBase{
+  width: 50%;
+  max-width: 512px;
+  margin: 0 10px;
+  position: absolute;
+}
+
+
+.leftImg{
+  @include imgBase;
+  left: 5px;
+}
+
+.rightImg{
+  @include imgBase;
+  right: 5px;
 }
 
 .imgBlock{
   position: static !important;
 }
 
+.leftText{
+  @include textBase;
+  left: 0;
+}
+
 .rightText{
-  width: 50%;
-  max-width: 512px;
-  margin: 0 10px;
-  position: absolute;
-  right: 50%;
+  @include textBase;
   left: 50%;
 }
 

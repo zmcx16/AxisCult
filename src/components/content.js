@@ -2,6 +2,7 @@ import React from "react"
 
 import Marquee from "../components/marquee"
 import IntroAxis from "../components/introAxis"
+import IntroAqua from "../components/introAqua"
 
 import contentStyle from "./content.module.scss"
 
@@ -13,6 +14,7 @@ const Content = ({langFont}) => {
         <IntroAxis langFont={langFont}/>
       </div>
       <div className={contentStyle.section}>
+        <IntroAqua langFont={langFont} />
       </div>
       <div className={contentStyle.section}>
       </div>
