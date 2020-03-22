@@ -1,6 +1,5 @@
 @mixin imgBase{
   height: calc(100% - 10px);
-  width: calc(50% - 10px);
   position: absolute;
   cursor: pointer;
 }
@@ -10,16 +9,25 @@
   max-width: 512px;
   margin: 0 10px;
   position: absolute;
+  z-index: 10;
 }
 
 
 .leftImg{
   @include imgBase;
+  width: calc(50% - 10px);
   left: 5px;
 }
 
 .rightImg{
   @include imgBase;
+  width: calc(50% - 10px);
+  right: 5px;
+}
+
+.centerImg{
+  @include imgBase;
+  width: calc(100% - 10px);
   right: 5px;
 }
 

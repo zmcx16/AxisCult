@@ -17,10 +17,10 @@ const zh_TW = {
   'introAxis2.caption': `精神嚴重受挫的大法師B`,
   'introAxis3.caption': `受X癖好所苦的十字騎士C`,
   'introAxis4.caption': `想要獲得救贖嗎? 那就快加入阿克西斯教吧!!`,
-  'introAqua1.caption': `對人生感到絕望的冒險者A`,
-  'introAqua2.caption': `精神嚴重受挫的大法師B`,
-  'introAqua3.caption': `受X癖好所苦的十字騎士C`,
-  'introAqua4.caption': `想要獲得救贖嗎? 那就快加入阿克西斯教吧!!`
+  'introAqua1.caption': `高貴又美麗的阿克婭女神`,
+  'introAqua2.caption': `100分的笑容, 200分的美貌以及10000分的神聖氣息`,
+  'introAqua3.caption': `看看這惹人憐愛的模樣`,
+  'introAqua4.caption': `還需要猶豫嗎? 一起來信仰阿克婭女神吧!!`
 }
 
 export default zh_TW;

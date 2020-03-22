@@ -5,7 +5,7 @@ import IntroImage from "./introImage"
 
 import introBaseStyle from "./introBase.module.scss"
 
-function IntroAqua({ langFont }) {
+function IntroAqua({ langFont, isMobile }) {
 
   const introImgs = [
     {
@@ -31,7 +31,7 @@ function IntroAqua({ langFont }) {
   ]
 
   const introImgConfig = {
-    imgPos: 'right',
+    imgPos: isMobile? 'center': 'right',
     transitionsConfig: {
       from: { opacity: 0 },
       enter: { opacity: 1 },

@@ -4,7 +4,7 @@ import IntroImage from "./introImage"
 
 import introBaseStyle from "./introBase.module.scss"
 
-function IntroAxis({ langFont }) {
+function IntroAxis({ langFont, isMobile }) {
 
   const introImgs = [
     {
@@ -30,7 +30,7 @@ function IntroAxis({ langFont }) {
   ]
 
   const introImgConfig = {
-    imgPos: 'left',
+    imgPos: isMobile ? 'center' : 'left',
     transitionsConfig: {
       from: { opacity: 0, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
       enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
@@ -41,7 +41,7 @@ function IntroAxis({ langFont }) {
 
   return (
     <>
-      <IntroImage langFont={langFont} introImgs={introImgs} introImgConfig={introImgConfig}/>
+      <IntroImage langFont={langFont} introImgs={introImgs} introImgConfig={introImgConfig} isMobile={isMobile}/>
       <div className={introBaseStyle.rightText}>
         <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
             <p><br />are you ever do some evil ... or have xxx.</p>

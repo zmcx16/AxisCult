@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
@@ -26,7 +26,9 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     }
   `)    
 
-  const imgStyle = introImgConfig.imgPos === 'left' ? introBaseStyle.leftImg : introBaseStyle.rightImg
+  const imgStyle = 
+    introImgConfig.imgPos === 'center' ? introBaseStyle.centerImg : 
+    introImgConfig.imgPos === 'left' ? introBaseStyle.leftImg : introBaseStyle.rightImg
 
   const [nowImgIndex, setNowImgIndex] = useState(0)
 
@@ -38,7 +40,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     
     const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} fadeIn={false} />)
     const imgCaptionObj = (<span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={element.captionKey} /></span>)
-
+    
     introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgCaptionObj}</animated.div>)
   })
 
@@ -48,13 +50,14 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
 
   const transitions = useTransition(nowImgIndex, p => p, introImgConfig.transitionsConfig)
 
-  const [imageHoverState, setImageHoverState] = useState(false)
+  // useRef prevent render every time
+  const imageHoverState = useRef(false)
 
   useEffect(() => {
     // componentDidMount is here!
     // componentDidUpdate is here!
     const switchImg_interval = setInterval(function () {
-      if (imageHoverState === false){
+      if (imageHoverState.current === false){
         doSwitchImgNode()
       }
     }, 5000)
@@ -69,10 +72,10 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     <>
       <div className={imgStyle} onClick={doSwitchImgNode} 
         onMouseEnter={() => {
-          setImageHoverState(true)
+          imageHoverState.current = true
         }} 
         onMouseLeave={() => {
-          setImageHoverState(false)
+          imageHoverState.current = false
         }}>
         {transitions.map(({ item, props, key }) => {
           const Page = introImgNodes[item]
