@@ -10,7 +10,7 @@ const zh_TW = {
   'marquee.text2': `就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!! 就是現在! 快加入阿克西斯教!!!`,
   'alcanretia.text': `阿爾坎雷堤亞`,
   'axisCult.text': `阿克西斯教團`,  
-  'header.text1': `歡迎你, 迷途的小羔羊阿`,
+  'header.text1': `歡迎你, 迷途的羔羊阿`,
   'header.text2': `傾訴你的罪孽吧`,
   'header.text3': `阿克婭女神肯定會聽到, 並賜予你救贖`,  
   'introAxis1.caption': `對人生感到絕望的冒險者A`,

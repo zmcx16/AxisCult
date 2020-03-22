@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { FormattedMessage } from "react-intl"
 
 import marqueeStyle from "./marquee.module.scss"

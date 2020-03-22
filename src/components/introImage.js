@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
@@ -35,7 +35,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
   var introImgNodes = []
   introImgs.forEach(function (element) {
     const imgNode = data.images.edges.find(n => {
-      return n.node.relativePath.includes(element.imgFileName);
+      return n.node.relativePath.includes(element.imgFileName)
     })
     
     const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} fadeIn={false} />)
@@ -60,7 +60,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
       if (imageHoverState.current === false){
         doSwitchImgNode()
       }
-    }, 5000)
+    }, introImgConfig.interval)
 
     return () => {
       // componentWillUnmount is here!

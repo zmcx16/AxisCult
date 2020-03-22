@@ -3,13 +3,15 @@
 // desktop: 12x6
 // mobile: 6x6
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import { makeStyles } from '@material-ui/core/styles'
+import Modal from '@material-ui/core/Modal'
+import Backdrop from '@material-ui/core/Backdrop'
+import Fade from '@material-ui/core/Fade'
+
+import kaoGeiStyle from "./kaoGei.module.scss"
 
 function shuffle(a) {
     var j, x, i;
@@ -33,8 +35,7 @@ const useModalStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
-    width: '400px'
-    //padding: theme.spacing(2, 4, 3),
+    width: '90%'
   },
 }));
 
@@ -53,7 +54,7 @@ function KaoGei({ langFont, isMobile }) {
 
   const data = useStaticQuery(graphql`
     query {
-      images: allFile{
+      thumbnailImages: allFile{
         edges {
           node {
             relativePath
@@ -66,24 +67,46 @@ function KaoGei({ langFont, isMobile }) {
           }
         }
       }
+
+      sourceImages: allFile{
+        edges {
+          node {
+            relativePath
+            name
+            childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
-  `)    
-  
+  `)  
+
   var introImgNodes = []
   kaoGeiImgs.forEach(function (element) {
-    const imgNode = data.images.edges.find(n => {
-      return n.node.relativePath.includes(element.thumbnail);
+    const thumbnailNode = data.thumbnailImages.edges.find(n => {
+      return n.node.relativePath.includes(element.thumbnail)
     })
     
-      introImgNodes.push(
-        <div key={element.id} onClick={() => {
-          //setModalSource(element.source)
-          setModalOpen(true);
-        }}>
-          <Img fixed={imgNode.node.childImageSharp.fixed} fadeIn={false}/>
-        </div>
-      )
+    introImgNodes.push(
+    <div key={element.id} onClick={() => {
+      const sourceNode = data.sourceImages.edges.find(n => {
+        return n.node.relativePath.includes(element.source)
+      })
+      setModalImage(<Img fluid={sourceNode.node.childImageSharp.fluid} fadeIn={false}/>)
+      setModalOpen(true)
+    }}>
+      <Img fixed={thumbnailNode.node.childImageSharp.fixed} fadeIn={false} className={kaoGeiStyle.thumbnail}/>
+    </div>
+    )
   })
+
+  var imagesStyle = kaoGeiStyle.grid
+  if (isMobile){
+    imagesStyle = kaoGeiStyle.gridMobile
+  }
 
   // Modal
   const modalStyle = useModalStyles();
@@ -91,13 +114,15 @@ function KaoGei({ langFont, isMobile }) {
   const handleClose = () => {
     setModalOpen(false);
   };
+
+  const [modalImage, setModalImage] = useState(<></>)
   
   return (
     <>
       <div>
-        <h1> 想更了解我們信奉的女神阿克婭大人嗎? 點擊下面的圖片吧!!!</h1>
+        <h1> 想更進一步認識阿克婭女神嗎? 點擊下面的圖片吧!!! </h1>
       </div>
-      <div>
+      <div className={imagesStyle}>
         {introImgNodes}
       </div>
       <Modal
@@ -115,7 +140,7 @@ function KaoGei({ langFont, isMobile }) {
         <Fade in={modalOpen}>
           <div className={modalStyle.paper}>
             <div>
-              test
+              {modalImage}
             </div>
           </div>
         </Fade>

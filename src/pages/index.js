@@ -12,9 +12,9 @@ import SwitchLang from "../components/switchLang"
 import AudioPlayer from "../components/audioPlayer"
 
 
-import en from '../i18n/en.js';
-import zh_tw from '../i18n/zh-tw.js';
-import isekai from '../i18n/isekai.js';
+import en from '../i18n/en.js'
+import zh_tw from '../i18n/zh-tw.js'
+import isekai from '../i18n/isekai.js'
 
 import Common from "../components/common"
 

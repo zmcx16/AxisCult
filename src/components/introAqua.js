@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { config } from 'react-spring'
 
 import IntroImage from "./introImage"
@@ -32,6 +32,7 @@ function IntroAqua({ langFont, isMobile }) {
 
   const introImgConfig = {
     imgPos: isMobile? 'center': 'right',
+    interval: 7000,
     transitionsConfig: {
       from: { opacity: 0 },
       enter: { opacity: 1 },
