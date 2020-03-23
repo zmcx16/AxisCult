@@ -24,27 +24,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MissionaryModal({ langFont, use_lang }) {
+export default function MissionaryModal({ langFont }) {
 
   const data = useStaticQuery(graphql`
     query {
-      enImage: file(relativePath: { eq: "application-form-en.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      zhTWImage: file(relativePath: { eq: "application-form-zh-TW.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
-      isekaiImage: file(relativePath: { eq: "application-form-isekai.jpg" }) {
+      image: file(relativePath: { eq: "application-form-isekai.jpg" }) {
         childImageSharp {
           fluid(quality: 100) {
             ...GatsbyImageSharpFluid
@@ -54,14 +38,7 @@ export default function MissionaryModal({ langFont, use_lang }) {
     }
   `)
 
-  var applicationForm = null
-  if (use_lang.includes('zh')) {
-    applicationForm = data.zhTWImage
-  } else if (use_lang.includes('isekai')) {
-    applicationForm = data.isekaiImage
-  } else {
-    applicationForm = data.enImage
-  }
+  const applicationForm = data.image
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);

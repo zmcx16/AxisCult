@@ -81,7 +81,7 @@ const IndexPage = () => {
           <AudioPlayer />
           <SwitchLang setLocale={setLocale} />
         </Layout>
-        <MissionaryModal langFont={langFont} use_lang={use_lang}/>
+        <MissionaryModal langFont={langFont}/>
       </IntlProvider>
     </StylesProvider>
   )

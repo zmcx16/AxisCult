@@ -35,12 +35,12 @@ const useModalStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
-    width: '90%'
+    width: '80%'
   },
 }));
 
 // prevent always regen thumbnail ---
-const kaoGeiImgCount = 4
+const kaoGeiImgCount = 21
 var kaoGeiImgs = []
 
 for (let i = 1; i <= kaoGeiImgCount; i++) {

@@ -6,12 +6,12 @@
 
 .grid{
   @include gridBase;
-  grid-template-columns: repeat(2, 64px);
+  grid-template-columns: repeat(12, 64px);
 }
 
 .gridMobile{
   @include gridBase;
-  grid-template-columns: repeat(2, 64px);
+  grid-template-columns: repeat(6, 64px);
 }
 
 .thumbnail{
