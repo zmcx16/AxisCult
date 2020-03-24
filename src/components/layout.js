@@ -5,12 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
-import Content from "../components/content"
 import Header from "../components/header"
-
 import layoutStyle from "./layout.module.scss"
 
 const Layout = ({ children, use_lang, setLocale, langFont, setLangFont} ) => {
@@ -19,12 +17,11 @@ const Layout = ({ children, use_lang, setLocale, langFont, setLangFont} ) => {
     <>
       <div className={layoutStyle.container}>
         <Header use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont} />
-        <Content langFont={langFont} />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://project.zmcx16.moe/">zmcx16</a>
         </footer>
       </div>
     </>
