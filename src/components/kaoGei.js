@@ -40,10 +40,10 @@ const useModalStyles = makeStyles(theme => ({
 }));
 
 // prevent always regen thumbnail ---
-const kaoGeiImgCount = 21
+const kaoGeiImgTotal = 104
 var kaoGeiImgs = []
 
-for (let i = 1; i <= kaoGeiImgCount; i++) {
+for (let i = 1; i <= kaoGeiImgTotal; i++) {
   kaoGeiImgs.push({ thumbnail: 'kaoGei' + i + '-thumbnail.jpg', source: 'kaoGei' + i + '.jpg', id: 'kaoGei' + i })
 }
 
@@ -84,16 +84,23 @@ function KaoGei({ langFont, isMobile }) {
     }
   `)  
 
+  var kaoGeiImgCount = 72
+  var imagesStyle = kaoGeiStyle.grid
+  if (isMobile) {
+    kaoGeiImgCount = 36
+    imagesStyle = kaoGeiStyle.gridMobile
+  }
+
   var introImgNodes = []
-  kaoGeiImgs.forEach(function (element) {
+  for (let i = 0; i < kaoGeiImgCount; i++) {
     const thumbnailNode = data.thumbnailImages.edges.find(n => {
-      return n.node.relativePath.includes(element.thumbnail)
+      return n.node.relativePath.includes(kaoGeiImgs[i].thumbnail)
     })
     
     introImgNodes.push(
-    <div key={element.id} onClick={() => {
+    <div key={kaoGeiImgs[i].id} onClick={() => {
       const sourceNode = data.sourceImages.edges.find(n => {
-        return n.node.relativePath.includes(element.source)
+        return n.node.relativePath.includes(kaoGeiImgs[i].source)
       })
       setModalImage(<Img fluid={sourceNode.node.childImageSharp.fluid} fadeIn={false}/>)
       setModalOpen(true)
@@ -101,11 +108,6 @@ function KaoGei({ langFont, isMobile }) {
       <Img fixed={thumbnailNode.node.childImageSharp.fixed} fadeIn={false} className={kaoGeiStyle.thumbnail}/>
     </div>
     )
-  })
-
-  var imagesStyle = kaoGeiStyle.grid
-  if (isMobile){
-    imagesStyle = kaoGeiStyle.gridMobile
   }
 
   // Modal
