@@ -52,7 +52,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
 
   // useRef prevent render every time
   const imageHoverState = useRef(false)
-
+  
   useEffect(() => {
     // componentDidMount is here!
     // componentDidUpdate is here!
@@ -67,7 +67,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
       clearInterval(switchImg_interval)
     }
   }, [imageHoverState])
-
+  
   return (
     <>
       <div className={imgStyle} onClick={doSwitchImgNode} 
@@ -81,6 +81,10 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
           const Page = introImgNodes[item]
           return <Page key={key} style={props} />
         })}
+        <div className={introBaseStyle.imgFrameLeft}></div>
+        <div className={introBaseStyle.imgFrameRight}></div>
+        <div className={introBaseStyle.imgFrameTop}></div>
+        <div className={introBaseStyle.imgFrameBottom}></div>
       </div>
     </>
   )

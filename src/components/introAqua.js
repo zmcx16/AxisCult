@@ -34,7 +34,7 @@ function IntroAqua({ langFont, isMobile }) {
     imgPos: isMobile? 'center': 'right',
     interval: 7000,
     transitionsConfig: {
-      from: { opacity: 0 },
+      from: { opacity: 1 },
       enter: { opacity: 1 },
       leave: { opacity: 0 },
       config: { duration: 600 }
