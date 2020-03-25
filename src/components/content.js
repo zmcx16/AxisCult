@@ -4,6 +4,7 @@ import Marquee from "../components/marquee"
 import IntroAxis from "../components/introAxis"
 import IntroAqua from "../components/introAqua"
 import KaoGei from "../components/kaoGei"
+import CardQA from "../components/CardQA"
 
 import contentStyle from "./content.module.scss"
 
@@ -28,6 +29,9 @@ const Content = ({langFont}) => {
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
         <KaoGei langFont={langFont} isMobile={isMobile} />
+      </div>
+      <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
+        <CardQA langFont={langFont} isMobile={isMobile} />
       </div>
       <Marquee text_id={'marquee.text2'} langFont={langFont} />
     </div>
