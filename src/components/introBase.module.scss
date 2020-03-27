@@ -2,6 +2,7 @@
   height: calc(100% - 10px);
   position: absolute;
   cursor: pointer;
+  overflow: hidden;
 }
 
 @mixin textBase{

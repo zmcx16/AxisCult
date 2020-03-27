@@ -122,7 +122,7 @@ function KaoGei({ langFont, isMobile }) {
   return (
     <>
       <div>
-        <h1> 想更進一步認識阿克婭女神嗎? 點擊下面的圖片吧!!! </h1>
+        <h2> 想更進一步認識阿克婭女神嗎? 點擊下面的圖片吧!!! </h2>
       </div>
       <div className={imagesStyle}>
         {introImgNodes}

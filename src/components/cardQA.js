@@ -6,40 +6,97 @@
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { useSpring, animated } from 'react-spring'
+import { useSprings, animated } from 'react-spring'
+import { FormattedMessage } from "react-intl"
 
 import cardQAStyle from "./cardQA.module.scss"
 
 function CardQA({ langFont, isMobile }) {
 
+  const cardContent = [
+    {
+      imgFileName: "card1.jpg",
+      frontContentKey: "introAqua1.caption",
+      backContentKey: "introAqua2.caption"
+    },
+    {
+      imgFileName: "card1.jpg",
+      frontContentKey: "introAqua2.caption",
+      backContentKey: "introAqua3.caption"
+    },
+    {
+      imgFileName: "card1.jpg",
+      frontContentKey: "introAqua3.caption",
+      backContentKey: "introAqua4.caption"
+    },
+    {
+      imgFileName: "card1.jpg",
+      frontContentKey: "introAqua1.caption",
+      backContentKey: "introAqua2.caption"
+    }
+  ]
+
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "axis-icon.png" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
+      images: allFile{
+        edges {
+          node {
+            relativePath
+            name
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
   `)
 
-  const [flipped, set] = useState(false)
-  const { transform, opacity } = useSpring({
-    opacity: flipped ? 1 : 0,
-    transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 500, friction: 80 }
-  })
+  const [flipped, setFlipped] = useState(Array(cardContent.length).fill(false))
+  const flippedSpring = useSprings(cardContent.length, flipped.map(item =>({ 
+    opacity: item ? 1 : 0,
+    transform: `perspective(600px) rotateX(${item ? 180 : 0}deg)`,
+    config: {
+      mass: 5, tension: 500, friction: 80}
+  })))
+
+  var cardNodes = []
+  for (let i = 0; i < cardContent.length; i++) {
+
+    let transform = flippedSpring[i].transform
+    let opacity = flippedSpring[i].opacity
+
+    const frontImgNode = data.images.edges.find(n => {
+      return n.node.relativePath.includes('axis-icon.png')
+    })
+
+    const backImgNode = data.images.edges.find(n => {
+      return n.node.relativePath.includes(cardContent[i].imgFileName)
+    })
+
+    const cardFrontImgObj = (<Img fluid={frontImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
+    const cardFrontContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedMessage id={cardContent[i].frontContentKey} /></span>)
+    const cardBackImgObj = (<Img fluid={backImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
+    const cardBackContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedMessage id={cardContent[i].backContentKey} /></span>)
+
+    cardNodes.push(
+      <div className={cardQAStyle.cardContainer} onClick={() => {
+        let flipped_t = []
+        for (let j = 0; j < cardContent.length; j++) {
+          flipped_t.push(j === i ? !flipped[j] : flipped[j])
+        }
+        setFlipped(flipped_t)
+      }} key={i}>
+      <animated.div className={cardQAStyle.card} style={{ opacity: opacity.interpolate(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>{cardFrontImgObj}{cardFrontContentObj}</div></animated.div>
+      <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>{cardBackImgObj}{cardBackContentObj}</div></animated.div>
+    </div>)
+  }
+
   return (
     <div className={cardQAStyle.grid}>
-      <div className={cardQAStyle.cardContainer} onClick={() => set(state => !state)}>
-        <animated.div className={cardQAStyle.card} style={{ opacity: opacity.interpolate(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>00000000000</div></animated.div>
-        <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>11111111111</div></animated.div>
-      </div>
-      <div className={cardQAStyle.cardContainer} onClick={() => set(state => !state)}>
-        <animated.div className={cardQAStyle.card} style={{ opacity: opacity.interpolate(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>00000000000</div></animated.div>
-        <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>11111111111</div></animated.div>
-      </div>
+      {cardNodes}
     </div>
   )
 }

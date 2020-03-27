@@ -33,16 +33,16 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
   const [nowImgIndex, setNowImgIndex] = useState(0)
 
   var introImgNodes = []
-  introImgs.forEach(function (element) {
+  for (let i = 0; i < introImgs.length; i++) {
     const imgNode = data.images.edges.find(n => {
-      return n.node.relativePath.includes(element.imgFileName)
+      return n.node.relativePath.includes(introImgs[i].imgFileName)
     })
     
-    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={element.id} fadeIn={false} />)
-    const imgCaptionObj = (<span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={element.captionKey} /></span>)
+    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={i} fadeIn={false} />)
+    const imgCaptionObj = (<span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={introImgs[i].captionKey} /></span>)
     
     introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgCaptionObj}</animated.div>)
-  })
+  }
 
   const doSwitchImgNode = useCallback(
     () => setNowImgIndex(state => (state + 1) % introImgNodes.length), []

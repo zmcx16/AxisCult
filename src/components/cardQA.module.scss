@@ -4,14 +4,19 @@ $card-height: 340px;
 .grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, $card-width);
-  grid-gap: 10px;
-  height: $card-height;
-  margin: 10px;
+  grid-gap: 50px;
+  height: auto;
+  margin: 50px 0;
   cursor: pointer;
+  /* justify-items: center; */
+  /* align-items: center; */
+  justify-content: center;
+  /* flex-direction: column;*/
 }
 
 .cardContainer{
   position: relative;
+  height: $card-height;
 }
 
 .card{
@@ -29,4 +34,17 @@ $card-height: 340px;
   align-items: center; 
   justify-content: center; 
   text-align: center;
+  background-color: aliceblue;
+  font-weight: bolder;
+}
+
+.cardImg{
+  width: 100%;
+  z-index: 5;
+  opacity: .1;
+}
+
+.cardText{
+  z-index: 10;
+  padding: 0 5px;
 }

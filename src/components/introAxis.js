@@ -7,22 +7,18 @@ function IntroAxis({ langFont, isMobile }) {
 
   const introImgs = [
     {
-      id: "intro1",
       imgFileName: "introAxis1.jpg",
       captionKey: "introAxis1.caption"
     },
     {
-      id: "intro2",
       imgFileName: "introAxis2.jpg",
       captionKey: "introAxis2.caption"
     },
     {
-      id: "intro3",
       imgFileName: "introAxis3.jpg",
       captionKey: "introAxis3.caption"
     },
     {
-      id: "intro4",
       imgFileName: "introAxis4.jpg",
       captionKey: "introAxis4.caption"
     }
@@ -30,7 +26,7 @@ function IntroAxis({ langFont, isMobile }) {
 
   const introImgConfig = {
     imgPos: isMobile ? 'center' : 'left',
-    interval: 4000,
+    interval: 40000000,
     transitionsConfig: {
       from: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
       enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
