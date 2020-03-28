@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { IntlProvider, FormattedMessage } from "react-intl"
 import { StylesProvider } from "@material-ui/core/styles"
 
-import Common from "../components/common"
+import Common from "../common/common"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Content from "../components/content"
@@ -57,13 +57,21 @@ const IndexPage = () => {
   const [use_lang, l10n_messages] = getLang(locale)
   const [langFont, setLangFont] = useState( use_lang.includes('isekai') ? layoutStyle.isekaiFont : layoutStyle.defaultFont)
 
+  // RWD
+  let isMobile = false
+  if (typeof window !== 'undefined') {
+    if(window.screen.width < 960){
+      isMobile = true
+    }
+  }
+
   return (
     <StylesProvider injectFirst>
       <IntlProvider locale={use_lang} key={use_lang} defaultLocale="en" messages={l10n_messages}>
         <SEO use_lang={use_lang} />
         <Layout use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont}>
-          <Content langFont={langFont} />
-          <MissionaryModal langFont={langFont} />
+          <Content langFont={langFont} isMobile={isMobile} />
+          <MissionaryModal langFont={langFont} isMobile={isMobile} />
         </Layout>
       </IntlProvider>
     </StylesProvider>

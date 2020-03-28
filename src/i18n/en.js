@@ -20,7 +20,10 @@ const en = {
   'introAqua1.caption': `The adventurer A who desperate for life`,
   'introAqua2.caption': `The archmage B who is severely frustrated`,
   'introAqua3.caption': `The cross knight C suffering from X addiction`,
-  'introAqua4.caption': `Want to get salvation? Join Axis Cult now!`
+  'introAqua4.caption': `Want to get salvation? Join Axis Cult now!`,
+  'missionary.believer.text1': `Considerate, open-minded, enthusiastic, friendly, honest, agreeable, intelligent, cultured, diligent, kind, generous, active, lively, sweet, capable, energetic, innovative, responsible, libral, selfless, tolerant, adaptable, trustworthy, gifted, sincere, sympathetic, logical, motivated, optimistic, perservering, purposeful, pushy, clever, brave, confident, faithful, dutiful, devoted, religious, creative, romantic, likeable, erudite, versatile `,
+  'missionary.believer.text2': `Axis believer,`,
+  'missionary.believer.text3': `Goddess Aqua will bless you to have a wonderful day!`
 }
 
 export default en;

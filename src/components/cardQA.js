@@ -89,8 +89,8 @@ function CardQA({ langFont, isMobile }) {
         }
         setFlipped(flipped_t)
       }} key={i}>
-      <animated.div className={cardQAStyle.card} style={{ opacity: opacity.interpolate(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>{cardFrontImgObj}{cardFrontContentObj}</div></animated.div>
-      <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>{cardBackImgObj}{cardBackContentObj}</div></animated.div>
+      <animated.div className={cardQAStyle.card} style={{ opacity: opacity.to(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>{cardFrontImgObj}{cardFrontContentObj}</div></animated.div>
+      <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.to(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>{cardBackImgObj}{cardBackContentObj}</div></animated.div>
     </div>)
   }
 

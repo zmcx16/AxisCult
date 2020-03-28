@@ -28,7 +28,7 @@ function IntroAqua({ langFont, isMobile }) {
 
   const introImgConfig = {
     imgPos: isMobile? 'center': 'right',
-    interval: 70000000,
+    interval: 7000,
     transitionsConfig: {
       from: { opacity: 1 },
       enter: { opacity: 1 },

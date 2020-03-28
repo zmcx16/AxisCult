@@ -8,15 +8,7 @@ import CardQA from "../components/CardQA"
 
 import contentStyle from "./content.module.scss"
 
-const Content = ({langFont}) => {
-
-  // RWD
-  let isMobile = false
-  if (typeof window !== 'undefined') {
-    if(window.screen.width < 960){
-      isMobile = true
-    }
-  }
+const Content = ({langFont, isMobile}) => {
 
   return (
     <div className={contentStyle.contentContainer}>

@@ -20,7 +20,10 @@ const zh_TW = {
   'introAqua1.caption': `高貴又美麗的阿克婭女神`,
   'introAqua2.caption': `100分的笑容, 200分的美貌以及10000分的神聖氣息`,
   'introAqua3.caption': `看看這惹人憐愛的模樣`,
-  'introAqua4.caption': `還需要猶豫嗎? 一起來信仰阿克婭女神吧!!`
+  'introAqua4.caption': `還需要猶豫嗎? 一起來信仰阿克婭女神吧!!`,
+  'missionary.believer.text1': `體貼, 心胸開闊, 熱情, 友善, 誠實, 令人喜歡, 聰慧, 有教養, 勤奮, 善良, 慷慨, 積極, 精力充沛, 貼心, 能幹, 精力充沛, 創新, 負責任, 自由, 無私, 寬容, 適應性強, 值得信任, 有天賦, 真誠, 富同情心, 條理分明, 積極, 樂觀, 不屈不撓, 意志堅強, 上進, 聰明伶俐, 勇敢, 自信, 忠誠, 盡職, 奉獻, 虔誠, 富創造力, 浪漫, 可愛, 博學多聞, 多才多藝`,
+  'missionary.believer.text2': `的阿克西斯教徒阿,`,
+  'missionary.believer.text3': `願阿克婭女神保佑你有美好的一天!`,
 }
 
 export default zh_TW;

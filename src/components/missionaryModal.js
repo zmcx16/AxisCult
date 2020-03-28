@@ -9,48 +9,94 @@ import { FormattedMessage } from "react-intl"
 
 import missionaryModalStyle from "./missionaryModal.module.scss"
 
-const useStyles = makeStyles(theme => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    width: '400px'
-    //padding: theme.spacing(2, 4, 3),
-  },
-}));
-
-export default function MissionaryModal({ langFont }) {
+export default function MissionaryModal({ langFont, isMobile }) {
 
   const data = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "application-form-isekai.jpg" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
+      images: allFile{
+        edges {
+          node {
+            relativePath
+            name
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
-  `)
+  `) 
 
-  const applicationForm = data.image
+  const applicationForm = data.images.edges.find(n => {
+    return n.node.relativePath.includes('application-form-isekai.jpg')
+  })
 
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
   
+  const [modalPageStyle, setModalPageStyle] = useState(missionaryModalStyle.paper)
+
+  // options function
+  const joinAxisNow = () =>{
+    const party = data.images.edges.find(n => {
+      return n.node.relativePath.includes('party.jpg')
+    })
+
+    setModalPageStyle(missionaryModalStyle.story)
+    setModalContent(
+    <>
+      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+      <div className={missionaryModalStyle.storyCenterTextField}>
+        <h1 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>歡迎加入世界上最喜歡宴會和祭典的阿克西斯教</h1>
+        <h1 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>把腦袋的螺絲轉鬆一起黑皮黑皮吧!!!</h1>
+      </div>
+    </>)
+  }
+
+  const isAxisBeliever = () =>{
+    const party = data.images.edges.find(n => {
+      return n.node.relativePath.includes('bless.jpg')
+    })
+
+    var fSize = ''
+    if (isMobile)
+      fSize = 'xx-small'
+
+    setModalPageStyle(missionaryModalStyle.story)
+    setModalContent(
+    <>
+      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+      <div className={missionaryModalStyle.storyCenterTextField}>
+        <h2 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text1" /><FormattedMessage id="missionary.believer.text2" /></h2>
+        <h2 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text3" /></h2>
+      </div>
+    </>)
+  }
+
+  const [modalContent, setModalContent] = useState(
+    <>
+      <Img fluid={applicationForm.node.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} fadeIn={false}/>
+      <div className={missionaryModalStyle.paperTextField}>
+        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>你覺得阿克西斯教如何?</h3>
+        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>心動了嗎? 一定心動了吧!</h3>
+        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>現在就加入阿克西斯教吧!!!</h3>
+      </div>
+      <div className={missionaryModalStyle.optionContainerCenter}>
+        <div onClick={joinAxisNow}><h4 className={langFont + ' ' + missionaryModalStyle.optionText} >立刻加入阿克西斯教</h4></div>
+        <div onClick={isAxisBeliever}><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我已經是虔誠的阿克西斯教徒</h4></div>
+        <div><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我拒絕 / 下次再說</h4></div>
+        <div><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我是艾莉絲教徒...</h4></div>
+      </div>
+    </>)
 
   return (
     <div>
@@ -60,7 +106,7 @@ export default function MissionaryModal({ langFont }) {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        className={classes.modal}
+        className={missionaryModalStyle.modal}
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -70,11 +116,8 @@ export default function MissionaryModal({ langFont }) {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-            <Img fluid={applicationForm.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} />
-            <div className={missionaryModalStyle.textfield}>
-              test
-            </div>
+          <div className={modalPageStyle}>
+            {modalContent}
           </div>
         </Fade>
       </Modal>

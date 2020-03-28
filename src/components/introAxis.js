@@ -26,7 +26,7 @@ function IntroAxis({ langFont, isMobile }) {
 
   const introImgConfig = {
     imgPos: isMobile ? 'center' : 'left',
-    interval: 40000000,
+    interval: 4000,
     transitionsConfig: {
       from: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
       enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },

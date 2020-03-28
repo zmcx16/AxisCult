@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useIntl, defineMessages  } from "react-intl"
 
-import Common from "../components/common"
+import Common from "../common/common"
 
 // local function
 function getHrefLang() {

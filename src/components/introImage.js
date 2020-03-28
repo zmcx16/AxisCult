@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
 import { useTransition, animated } from 'react-spring'
 
+import { isPageVisibility } from '../common/utils'
+
 import introBaseStyle from "./introBase.module.scss"
 
 function IntroImage({ langFont, introImgs, introImgConfig}) {
@@ -57,7 +59,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     // componentDidMount is here!
     // componentDidUpdate is here!
     const switchImg_interval = setInterval(function () {
-      if (imageHoverState.current === false){
+      if (isPageVisibility() && imageHoverState.current === false){
         doSwitchImgNode()
       }
     }, introImgConfig.interval)
