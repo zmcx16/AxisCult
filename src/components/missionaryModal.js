@@ -6,6 +6,7 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import { FormattedMessage } from "react-intl"
+import GifPlayer from "react-gif-player"
 
 import missionaryModalStyle from "./missionaryModal.module.scss"
 
@@ -33,14 +34,23 @@ export default function MissionaryModal({ langFont, isMobile }) {
     return n.node.relativePath.includes('application-form-isekai.jpg')
   })
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false)
+  var enableClose = React.useRef(false)
+
+  var enableMissionary = React.useRef(false)
 
   const handleOpen = () => {
+    if (enableMissionary.current){
+      doMissionary()
+    }
+
     setOpen(true)
   }
 
   const handleClose = () => {
-    setOpen(false)
+    if (enableClose.current){
+      setOpen(false)
+    }
   }
   
   const [modalPageStyle, setModalPageStyle] = useState(missionaryModalStyle.paper)
@@ -60,6 +70,8 @@ export default function MissionaryModal({ langFont, isMobile }) {
         <h1 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>把腦袋的螺絲轉鬆一起黑皮黑皮吧!!!</h1>
       </div>
     </>)
+
+    enableClose.current = true
   }
 
   const isAxisBeliever = () =>{
@@ -80,6 +92,47 @@ export default function MissionaryModal({ langFont, isMobile }) {
         <h2 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text3" /></h2>
       </div>
     </>)
+
+    enableClose.current = true
+  }
+
+  const doMissionary = () =>{
+    console.log('doMissionary')
+    enableMissionary.current = true
+  }
+
+  const isErisBeliever = () => {
+
+    const erisGifs = [
+      {
+        gif: require("../images/missionary/eris1-no-repeat.gif"),
+        time: 9000
+      },
+      {
+        gif: require("../images/missionary/eris2-no-repeat.gif"),
+        time: 5000
+      },
+      {
+        gif: require("../images/missionary/eris3-no-repeat.gif"),
+        time: 11000
+      },
+      {
+        gif: require("../images/missionary/eris4-no-repeat.gif"),
+        time: 8000
+      }
+    ]
+
+    const pick = erisGifs[Math.floor(Math.random() * (erisGifs.length))]
+    console.log(pick)
+    setModalPageStyle(missionaryModalStyle.storyNoBorder)
+    setModalContent(
+      <div style={{pointerEvents: 'none'}}>
+        <GifPlayer gif={pick.gif} autoplay/>
+      </div>)
+
+    setTimeout(() => {
+      setOpen(false)
+    }, pick.time+1000)
   }
 
   const [modalContent, setModalContent] = useState(
@@ -93,8 +146,8 @@ export default function MissionaryModal({ langFont, isMobile }) {
       <div className={missionaryModalStyle.optionContainerCenter}>
         <div onClick={joinAxisNow}><h4 className={langFont + ' ' + missionaryModalStyle.optionText} >立刻加入阿克西斯教</h4></div>
         <div onClick={isAxisBeliever}><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我已經是虔誠的阿克西斯教徒</h4></div>
-        <div><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我拒絕 / 下次再說</h4></div>
-        <div><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我是艾莉絲教徒...</h4></div>
+        <div onClick={doMissionary}><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我拒絕 / 下次再說</h4></div>
+        <div onClick={isErisBeliever}><h4 className={langFont + ' ' + missionaryModalStyle.optionText}>我是艾莉絲教徒...</h4></div>
       </div>
     </>)
 

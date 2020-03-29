@@ -7,7 +7,6 @@ $card-height: 340px;
   grid-gap: 50px;
   height: auto;
   margin: 50px 0;
-  cursor: pointer;
   /* justify-items: center; */
   /* align-items: center; */
   justify-content: center;
@@ -36,6 +35,7 @@ $card-height: 340px;
   text-align: center;
   background-color: aliceblue;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .cardImg{

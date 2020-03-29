@@ -76,6 +76,18 @@
   width: 80%;
 }
 
+.storyNoBorder{
+  @include modalContentBase;
+  width: 80%;
+  border: none;
+  outline: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .storyCenterTextField{
   @include textBase;
   color: steelblue;
