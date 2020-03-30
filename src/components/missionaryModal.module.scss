@@ -107,4 +107,14 @@
   bottom: 0;
 }
 
+.missionButtonContainer{
+  position: absolute;
+  bottom: 15px;
+  display: grid;
+  bottom: 15px;
+  justify-content: center;
+  grid-template-columns: 15px 3fr 1fr 15px;
+  width: 100%;
+  gap: 30px;
+}
 

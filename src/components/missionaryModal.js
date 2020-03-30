@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import Button from '@material-ui/core/Button';
 import { FormattedMessage } from "react-intl"
 import GifPlayer from "react-gif-player"
 
@@ -56,6 +56,7 @@ export default function MissionaryModal({ langFont, isMobile }) {
   const [modalPageStyle, setModalPageStyle] = useState(missionaryModalStyle.paper)
 
   // options function
+  // join axis cult
   const joinAxisNow = () =>{
     const party = data.images.edges.find(n => {
       return n.node.relativePath.includes('party.jpg')
@@ -74,6 +75,7 @@ export default function MissionaryModal({ langFont, isMobile }) {
     enableClose.current = true
   }
 
+  // axis believer
   const isAxisBeliever = () =>{
     const party = data.images.edges.find(n => {
       return n.node.relativePath.includes('bless.jpg')
@@ -96,11 +98,52 @@ export default function MissionaryModal({ langFont, isMobile }) {
     enableClose.current = true
   }
 
+  // do missionary
   const doMissionary = () =>{
     console.log('doMissionary')
-    enableMissionary.current = true
+    enableClose.current = false
+
+    const story = [
+      {
+        image: 'missionary1.jpg',
+        text: [
+          '哎呀! 剛好我很擅長占卜, 讓我幫你占卜一下吧! ',
+          '就在剛才, 占卜的結果出爐了。 不久後你會遭遇不幸, 但如果加入阿克西斯教, 就能夠迴避這場災難!',
+          '入教吧! 現在就該入教了吧!!!'
+        ]
+      }
+    ]
+
+    const pick = story[0]
+
+    const party = data.images.edges.find(n => {
+      return n.node.relativePath.includes(pick.image)
+    })
+
+    var missionaryText = []
+    for (let i = 0; i < pick.text.length; i++) {
+
+      const textHtml = (<h2 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>{pick.text[i]}</h2>)
+      missionaryText.push(textHtml)
+    }
+
+    setModalPageStyle(missionaryModalStyle.story)
+    setModalContent(
+      <>
+        <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+        <div className={missionaryModalStyle.storyCenterTextField}>
+          {missionaryText}
+        </div>
+        <div className={missionaryModalStyle.missionButtonContainer}>
+          <div></div>
+          <Button variant="contained" color="primary">加入阿克西斯教</Button>
+          <Button variant="contained" color="primary">立刻逃跑</Button>
+          <div></div>
+        </div>
+      </>)
   }
 
+  // Eris believer
   const isErisBeliever = () => {
 
     const erisGifs = [
