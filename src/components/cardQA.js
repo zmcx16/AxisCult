@@ -11,7 +11,7 @@ import { FormattedMessage } from "react-intl"
 
 import cardQAStyle from "./cardQA.module.scss"
 
-function CardQA({ langFont, isMobile }) {
+function CardQA({ langFont, isMobile, axisBadgeImage }) {
 
   const cardContent = [
     {
@@ -95,9 +95,16 @@ function CardQA({ langFont, isMobile }) {
   }
 
   return (
-    <div className={cardQAStyle.grid}>
-      {cardNodes}
-    </div>
+    <>
+      <div className={cardQAStyle.title}>
+        {axisBadgeImage}
+        <h2> 阿克西斯教 問與答專欄 </h2>
+        {axisBadgeImage}
+      </div>
+      <div className={cardQAStyle.grid}>
+        {cardNodes}
+      </div>
+    </>
   )
 }
 

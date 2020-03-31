@@ -1,14 +1,31 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Marquee from "../components/marquee"
 import IntroAxis from "../components/introAxis"
 import IntroAqua from "../components/introAqua"
 import KaoGei from "../components/kaoGei"
 import CardQA from "../components/CardQA"
+import IntroCreed from "../components/IntroCreed"
 
 import contentStyle from "./content.module.scss"
 
 const Content = ({langFont, isMobile}) => {
+
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "axis-icon.png" }) {
+        childImageSharp {
+          fixed(width: 32){
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
+  const axisBadgeImage = (<Img fixed={data.placeholderImage.childImageSharp.fixed}/>)
 
   return (
     <div className={contentStyle.contentContainer}>
@@ -20,10 +37,13 @@ const Content = ({langFont, isMobile}) => {
         <IntroAqua langFont={langFont} isMobile={isMobile} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <KaoGei langFont={langFont} isMobile={isMobile} />
+        <KaoGei langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <CardQA langFont={langFont} isMobile={isMobile} />
+        <CardQA langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+      </div>
+      <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
+        <IntroCreed langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
       </div>
       <Marquee text_id={'marquee.text2'} langFont={langFont} />
     </div>

@@ -29,8 +29,11 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
   `)    
 
   const imgStyle = 
-    introImgConfig.imgPos === 'center' ? introBaseStyle.centerImg : 
+    introImgConfig.imgPos === 'centerMobileImg' ? introBaseStyle.centerMobileImg : 
+    introImgConfig.imgPos === 'centerWithFullText' ? introBaseStyle.centerImg : 
     introImgConfig.imgPos === 'left' ? introBaseStyle.leftImg : introBaseStyle.rightImg
+
+  const textStyle = introImgConfig.imgPos === 'centerWithFullText' ? introBaseStyle.imgFullText : introBaseStyle.imgCaption
 
   const [nowImgIndex, setNowImgIndex] = useState(0)
 
@@ -41,9 +44,9 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     })
     
     const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={i} fadeIn={false} />)
-    const imgCaptionObj = (<span className={introBaseStyle.ImgCaption + ' ' + langFont}><FormattedMessage id={introImgs[i].captionKey} /></span>)
+    const imgTextObj = (<span className={textStyle + ' ' + langFont}><FormattedMessage id={introImgs[i].textKey} /></span>)
     
-    introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgCaptionObj}</animated.div>)
+    introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgTextObj}</animated.div>)
   }
 
   const doSwitchImgNode = useCallback(

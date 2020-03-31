@@ -1,0 +1,18 @@
+.title{
+  display: grid;
+  grid-template-columns: 32px auto 32px;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;  
+  margin: 0 10px;
+}
+
+.imgContainer{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  margin-bottom: 15px;
+}

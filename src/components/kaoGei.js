@@ -50,7 +50,7 @@ for (let i = 1; i <= kaoGeiImgTotal; i++) {
 shuffle(kaoGeiImgs)
 // -------------------------------------
 
-function KaoGei({ langFont, isMobile }) {
+function KaoGei({ langFont, isMobile, axisBadgeImage }) {
 
   const data = useStaticQuery(graphql`
     query {
@@ -121,8 +121,10 @@ function KaoGei({ langFont, isMobile }) {
   
   return (
     <>
-      <div>
+      <div className={kaoGeiStyle.title}>
+        {axisBadgeImage}
         <h2> 想更進一步認識阿克婭女神嗎? 點擊下面的圖片吧!!! </h2>
+        {axisBadgeImage}
       </div>
       <div className={imagesStyle}>
         {introImgNodes}

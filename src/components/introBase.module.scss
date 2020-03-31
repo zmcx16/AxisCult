@@ -26,10 +26,15 @@
   right: 5px;
 }
 
-.centerImg{
+.centerMobileImg{
   @include imgBase;
   width: calc(100% - 10px);
   right: 5px;
+}
+
+.centerImg{
+  @include imgBase;
+  width: 870px;
 }
 
 .imgBlock{
@@ -64,13 +69,13 @@
 
 .imgFrameTop{
   @include imgFrameTopBottom;
-  background: transparent url(../images/imageFrame/frame-top.png) no-repeat;
+  background: transparent url(../images/imageFrame/frame-top.png);
   top: 0;
 }
 
 .imgFrameBottom{
   @include imgFrameTopBottom;
-  background: transparent url(../images/imageFrame/frame-bottom.png) no-repeat;
+  background: transparent url(../images/imageFrame/frame-bottom.png);
   bottom: 0;
 }
 
@@ -86,7 +91,7 @@
   left: 50%;
 }
 
-.ImgCaption{
+.imgCaption{
   position: absolute;
   text-align: center;
   left: 100px;
@@ -94,5 +99,14 @@
   bottom: 50px;
   background: rgba(255,255,255,0.7);
   border-radius: 5px;
+  line-height: 26px;
+}
+
+.imgFullText{
+  position: absolute;
+  text-align: center;
+  left: 100px;
+  right: 100px;
+  background: rgba(255,255,255,0.7);
   line-height: 26px;
 }

@@ -4,11 +4,14 @@ import Img from "gatsby-image"
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { blue } from '@material-ui/core/colors'
 import Button from '@material-ui/core/Button';
 import { FormattedMessage } from "react-intl"
 import GifPlayer from "react-gif-player"
 
 import missionaryModalStyle from "./missionaryModal.module.scss"
+
 
 export default function MissionaryModal({ langFont, isMobile }) {
 
@@ -123,7 +126,7 @@ export default function MissionaryModal({ langFont, isMobile }) {
     var missionaryText = []
     for (let i = 0; i < pick.text.length; i++) {
 
-      const textHtml = (<h2 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>{pick.text[i]}</h2>)
+      const textHtml = (<h2 key={i} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>{pick.text[i]}</h2>)
       missionaryText.push(textHtml)
     }
 
@@ -135,10 +138,16 @@ export default function MissionaryModal({ langFont, isMobile }) {
           {missionaryText}
         </div>
         <div className={missionaryModalStyle.missionButtonContainer}>
-          <div></div>
-          <Button variant="contained" color="primary">加入阿克西斯教</Button>
-          <Button variant="contained" color="primary">立刻逃跑</Button>
-          <div></div>
+          <MuiThemeProvider theme={createMuiTheme({ palette: { secondary: blue } })}>
+            <div></div>
+            <Button variant="contained" color="secondary" onClick={()=>{
+              joinAxisNow()
+            }}>加入阿克西斯教</Button>
+            <Button variant="contained" color="secondary" onClick={() => {
+              
+            }}>立刻逃跑</Button>
+            <div></div>
+          </MuiThemeProvider>
         </div>
       </>)
   }
