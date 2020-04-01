@@ -48,7 +48,7 @@ function IntroCreed({ langFont, isMobile, axisBadgeImage }) {
   const introImgConfig = {
     imgPos: isMobile ? 'centerMobileImg' : 'centerWithFullText',
     textStyle: isMobile ? 'imgFullTextMobile' : 'imgFullText',
-    interval: 9000000,
+    interval: 9000,
     transitionsConfig: {
       from: { opacity: 1, transform: 'translate3d(99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
       enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },

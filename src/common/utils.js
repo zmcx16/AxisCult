@@ -1,4 +1,10 @@
 export var isPageVisibility = (function () {
+
+    let document = {}
+    if (typeof window !== 'undefined') {
+        document = window.document
+    }
+
     var stateKey,
         eventKey,
         keys = {

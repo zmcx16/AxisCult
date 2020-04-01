@@ -9,6 +9,7 @@ import KaoGei from "../components/kaoGei"
 import CardQA from "../components/cardQA"
 import IntroCreed from "../components/introCreed"
 import MissionaryLoli from "../components/missionaryLoli"
+//import Survey from "../components/survey"
 
 import contentStyle from "./content.module.scss"
 
