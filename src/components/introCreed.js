@@ -8,26 +8,47 @@ function IntroCreed({ langFont, isMobile, axisBadgeImage }) {
 
   const introImgs = [
     {
-      imgFileName: "introAxis1.jpg",
-      textKey: "introAxis1.caption"
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text1"
     },
     {
-      imgFileName: "introAxis2.jpg",
-      textKey: "introAxis2.caption"
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text2"
     },
     {
-      imgFileName: "introAxis3.jpg",
-      textKey: "introAxis3.caption"
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text3"
     },
     {
-      imgFileName: "introAxis4.jpg",
-      textKey: "introAxis4.caption"
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text4"
+    },
+    {
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text5"
+    },
+    {
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text6"
+    },
+    {
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text7"
+    },
+    {
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text8"
+    },
+    {
+      imgFileName: "introCreed1.jpg",
+      textKey: "introCreed.text9"
     }
   ]
 
   const introImgConfig = {
     imgPos: isMobile ? 'centerMobileImg' : 'centerWithFullText',
-    interval: 9000,
+    textStyle: isMobile ? 'imgFullTextMobile' : 'imgFullText',
+    interval: 9000000,
     transitionsConfig: {
       from: { opacity: 1, transform: 'translate3d(99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
       enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },

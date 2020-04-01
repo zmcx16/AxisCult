@@ -10,24 +10,25 @@ function IntroAqua({ langFont, isMobile }) {
   const introImgs = [
     {
       imgFileName: "introAqua1.jpg",
-      textKey: "introAqua1.caption"
+      textKey: "introAqua.caption1"
     },
     {
       imgFileName: "introAqua2.jpg",
-      textKey: "introAqua2.caption"
+      textKey: "introAqua.caption2"
     },
     {
       imgFileName: "introAqua3.jpg",
-      textKey: "introAqua3.caption"
+      textKey: "introAqua.caption3"
     },
     {
       imgFileName: "introAqua4.jpg",
-      textKey: "introAqua4.caption"
+      textKey: "introAqua.caption4"
     }
   ]
 
   const introImgConfig = {
-    imgPos: isMobile? 'centerMobileImg': 'right',
+    imgPos: isMobile ? 'centerMobileImg': 'right',
+    textStyle: isMobile ? 'imgCaptionMobile' : 'imgCaption',
     interval: 7000,
     transitionsConfig: {
       from: { opacity: 1 },

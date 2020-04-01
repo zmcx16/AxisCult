@@ -6,8 +6,9 @@ import Marquee from "../components/marquee"
 import IntroAxis from "../components/introAxis"
 import IntroAqua from "../components/introAqua"
 import KaoGei from "../components/kaoGei"
-import CardQA from "../components/CardQA"
-import IntroCreed from "../components/IntroCreed"
+import CardQA from "../components/cardQA"
+import IntroCreed from "../components/introCreed"
+import MissionaryLoli from "../components/missionaryLoli"
 
 import contentStyle from "./content.module.scss"
 
@@ -44,6 +45,9 @@ const Content = ({langFont, isMobile}) => {
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
         <IntroCreed langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+      </div>
+      <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
+        <MissionaryLoli langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
       </div>
       <Marquee text_id={'marquee.text2'} langFont={langFont} />
     </div>

@@ -1,0 +1,13 @@
+.title{
+  display: grid;
+  grid-template-columns: 32px auto 32px;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;  
+  margin: 0 10px;
+}
+
+.centerImg{
+  display: block;
+  margin: 5px 10px 20px 10px;
+}

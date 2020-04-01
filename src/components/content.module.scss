@@ -30,6 +30,7 @@
   @include sectionBase;
   display: block;
   text-align: center;
+  min-height: 100px;
 }
 
 .section:nth-child(even) {

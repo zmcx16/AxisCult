@@ -33,7 +33,10 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     introImgConfig.imgPos === 'centerWithFullText' ? introBaseStyle.centerImg : 
     introImgConfig.imgPos === 'left' ? introBaseStyle.leftImg : introBaseStyle.rightImg
 
-  const textStyle = introImgConfig.imgPos === 'centerWithFullText' ? introBaseStyle.imgFullText : introBaseStyle.imgCaption
+  const textStyle = 
+    introImgConfig.textStyle === 'imgFullTextMobile' ? introBaseStyle.imgFullTextMobile : 
+    introImgConfig.textStyle === 'imgFullText' ? introBaseStyle.imgFullText : 
+    introImgConfig.textStyle === 'imgCaptionMobile' ? introBaseStyle.imgCaptionMobile : introBaseStyle.imgCaption
 
   const [nowImgIndex, setNowImgIndex] = useState(0)
 
@@ -43,14 +46,16 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
       return n.node.relativePath.includes(introImgs[i].imgFileName)
     })
     
-    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={introBaseStyle.imgBlock} key={i} fadeIn={false} />)
+    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={textStyle === 'imgFullTextMobile' || textStyle === 'imgFullTextMobile' ? introBaseStyle.imgBlockWithOpacity : introBaseStyle.imgBlock} key={i} fadeIn={false} />)
     const imgTextObj = (<span className={textStyle + ' ' + langFont}><FormattedMessage id={introImgs[i].textKey} /></span>)
     
     introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgTextObj}</animated.div>)
   }
 
   const doSwitchImgNode = useCallback(
-    () => setNowImgIndex(state => (state + 1) % introImgNodes.length), []
+    () => {
+      setNowImgIndex(state => (state + 1) % introImgNodes.length)
+    }, []
   )
 
   const transitions = useTransition(nowImgIndex, p => p, introImgConfig.transitionsConfig)

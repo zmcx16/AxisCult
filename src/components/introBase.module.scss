@@ -35,10 +35,16 @@
 .centerImg{
   @include imgBase;
   width: 870px;
+  opacity: .8;
 }
 
 .imgBlock{
   position: static !important;
+}
+
+.imgBlockWithOpacity{
+  position: static !important;
+  opacity: .8;
 }
 
 @mixin imgFrameLeftRight{
@@ -79,8 +85,6 @@
   bottom: 0;
 }
 
-
-
 .leftText{
   @include textBase;
   left: 0;
@@ -91,7 +95,7 @@
   left: 50%;
 }
 
-.imgCaption{
+@mixin imgCaptionBase{
   position: absolute;
   text-align: center;
   left: 100px;
@@ -99,14 +103,63 @@
   bottom: 50px;
   background: rgba(255,255,255,0.7);
   border-radius: 5px;
+}
+
+.imgCaption{
+  @include imgCaptionBase;
   line-height: 26px;
 }
 
-.imgFullText{
+.imgCaptionMobile{
+  @include imgCaptionBase;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+@-webkit-keyframes fadeIn { 
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@mixin imgFullTextBase{
   position: absolute;
   text-align: center;
   left: 100px;
   right: 100px;
-  background: rgba(255,255,255,0.7);
-  line-height: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  /*color: royalblue;*/
+  /*color: steelblue;*/
+  color: mediumblue;
+  text-shadow: -1px 0 #f0f3f8, 0 1px #f0f3f8, 1px 0 #f0f3f8, 0 -1px #f5f5f1;
+  /*text-shadow: 0 2px 3px rgba(0,0,0,.4);*/
+  word-wrap: break-word;
+  word-break: keep-all;
+  
+  opacity: 0;
+  -webkit-animation: forwards;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+  animation: forwards;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+.imgFullText{
+  @include imgFullTextBase;
+  font-size: 28px;
+  line-height: 64px;
+}
+
+.imgFullTextMobile{
+  @include imgFullTextBase;
+  font-size: 26px;
+  line-height: 50px;
 }

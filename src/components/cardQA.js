@@ -16,23 +16,23 @@ function CardQA({ langFont, isMobile, axisBadgeImage }) {
   const cardContent = [
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua1.caption",
-      backContentKey: "introAqua2.caption"
+      frontContentKey: "introAqua.caption1",
+      backContentKey: "introAqua.caption2"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua2.caption",
-      backContentKey: "introAqua3.caption"
+      frontContentKey: "introAqua.caption2",
+      backContentKey: "introAqua.caption3"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua3.caption",
-      backContentKey: "introAqua4.caption"
+      frontContentKey: "introAqua.caption3",
+      backContentKey: "introAqua.caption4"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua1.caption",
-      backContentKey: "introAqua2.caption"
+      frontContentKey: "introAqua.caption1",
+      backContentKey: "introAqua.caption2"
     }
   ]
 
