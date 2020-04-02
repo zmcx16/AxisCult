@@ -89,7 +89,7 @@ function CardQA({ langFont, isMobile, axisBadgeImage }) {
         }
         setFlipped(flipped_t)
       }} key={i}>
-      <animated.div className={cardQAStyle.card} style={{ opacity: opacity.to(o => 1 - o), transform }}><div className={cardQAStyle.cardContent}>{cardFrontImgObj}{cardFrontContentObj}</div></animated.div>
+        <animated.div className={cardQAStyle.card} style={{ opacity: opacity.to(o => 1 - o), transform: transform.to(t => `${t} rotateX(0deg)`) }}><div className={cardQAStyle.cardContent}>{cardFrontImgObj}{cardFrontContentObj}</div></animated.div>
       <animated.div className={cardQAStyle.card} style={{ opacity, transform: transform.to(t => `${t} rotateX(180deg)`) }} ><div className={cardQAStyle.cardContent}>{cardBackImgObj}{cardBackContentObj}</div></animated.div>
     </div>)
   }

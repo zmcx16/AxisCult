@@ -24,6 +24,7 @@
     "react-spring": "^9.0.0-beta.34"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1"
   },
   "license": "MIT",

@@ -12,7 +12,8 @@ $card-height: 340px;
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, $card-width);
+  //grid-template-columns: repeat(auto-fill, $card-width);
+  grid-template-columns: repeat(auto-fit, $card-width);
   grid-gap: 50px;
   height: auto;
   margin: 20px 0;
