@@ -33,7 +33,21 @@ const zh_TW = {
   'introCreed.text7': `反正都要失敗不如放手去做，失敗之後跑路就好了。`,
   'introCreed.text8': `汝，虔誠的教徒啊。為了不再受到惡魔所誘惑，記住這句咒語吧。「厄里斯的胸部是墊出來的」。今後若是你的心又受到誘惑，就記得詠唱這句咒語。若是遇見其他受到誘惑的人，告訴他們這句咒語也是好事一樁。`,
   'introCreed.text9': `厄里斯的胸部是墊出來的!!! 厄里斯的胸部是墊出來的!!! 厄里斯的胸部是墊出來的!!!`,
-
+  'adaptiveTesting.question1.headerStart': `NOT AT ALL LIKELY`,
+  'adaptiveTesting.question1.headerEnd': `EXTREMELY LIKELY `,
+  'adaptiveTesting.question1.text': `問題一: OOXX`,
+  'adaptiveTesting.question2.headerStart': `NOT AT ALL LIKELY`,
+  'adaptiveTesting.question2.headerEnd': `EXTREMELY LIKELY `,
+  'adaptiveTesting.question2.text': `問題二: OOXX`,
+  'adaptiveTesting.question3.headerStart': `NOT AT ALL LIKELY`,
+  'adaptiveTesting.question3.headerEnd': `EXTREMELY LIKELY `,
+  'adaptiveTesting.question3.text': `問題三: OOXX`,
+  'adaptiveTesting.question4.headerStart': `NOT AT ALL LIKELY`,
+  'adaptiveTesting.question4.headerEnd': `EXTREMELY LIKELY `,
+  'adaptiveTesting.question4.text': `問題四: OOXX`,
+  'adaptiveTesting.question5.headerStart': `NOT AT ALL LIKELY`,
+  'adaptiveTesting.question5.headerEnd': `EXTREMELY LIKELY `,
+  'adaptiveTesting.question5.text': `問題五: OOXX`,
 }
 
 export default zh_TW;

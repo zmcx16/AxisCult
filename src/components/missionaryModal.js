@@ -13,7 +13,7 @@ import GifPlayer from "react-gif-player"
 import missionaryModalStyle from "./missionaryModal.module.scss"
 
 
-export default function MissionaryModal({ langFont, isMobile }) {
+export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
 
   const data = useStaticQuery(graphql`
     query {
@@ -55,12 +55,16 @@ export default function MissionaryModal({ langFont, isMobile }) {
       setOpen(false)
     }
   }
+
+  openModalRef.current.openModal = handleOpen // use for parent trigger
   
   const [modalPageStyle, setModalPageStyle] = useState(missionaryModalStyle.paper)
 
   // options function
   // join axis cult
   const joinAxisNow = () =>{
+    openModalRef.current.openModal = null
+    
     const party = data.images.edges.find(n => {
       return n.node.relativePath.includes('party.jpg')
     })
@@ -80,6 +84,8 @@ export default function MissionaryModal({ langFont, isMobile }) {
 
   // axis believer
   const isAxisBeliever = () =>{
+    openModalRef.current.openModal = null
+
     const party = data.images.edges.find(n => {
       return n.node.relativePath.includes('bless.jpg')
     })
@@ -142,9 +148,13 @@ export default function MissionaryModal({ langFont, isMobile }) {
             <div></div>
             <Button variant="contained" color="secondary" onClick={()=>{
               joinAxisNow()
+              enableMissionary.current = false
+              openModalRef.current.doMissionary = false
             }}>加入阿克西斯教</Button>
             <Button variant="contained" color="secondary" onClick={() => {
-              
+              enableMissionary.current = true
+              openModalRef.current.doMissionary = true
+              setOpen(false)
             }}>立刻逃跑</Button>
             <div></div>
           </MuiThemeProvider>
@@ -154,6 +164,7 @@ export default function MissionaryModal({ langFont, isMobile }) {
 
   // Eris believer
   const isErisBeliever = () => {
+    openModalRef.current.openModal = null
 
     const erisGifs = [
       {
@@ -205,9 +216,6 @@ export default function MissionaryModal({ langFont, isMobile }) {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        react-transition-group
-      </button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

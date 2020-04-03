@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { IntlProvider, FormattedMessage } from "react-intl"
 import { StylesProvider } from "@material-ui/core/styles"
 
@@ -65,13 +65,43 @@ const IndexPage = () => {
     }
   }
 
+  const openModalRef = useRef({doMissionary: false, openModal: null, start: false})
+    
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    const detect_scroll_interval = setInterval(function () {
+      //console.log(window.scrollY)
+      //console.log(window.document.body.offsetHeight)
+      let nowPos = window.scrollY
+      let totalHeight = window.document.body.offsetHeight
+      if (openModalRef.current.openModal !== null 
+        && ((nowPos >= totalHeight * .8 && openModalRef.current.start === false) 
+            || openModalRef.current.doMissionary === true)){
+        console.log(window.scrollY)
+        openModalRef.current.start = true
+        openModalRef.current.openModal()
+      }
+
+      if (openModalRef.current.openModal === null){
+        clearInterval(detect_scroll_interval)
+      } 
+
+    }, 1000)
+
+    return () => {
+      // componentWillUnmount is here!
+      clearInterval(detect_scroll_interval)
+    }
+  }, [openModalRef])
+
   return (
     <StylesProvider injectFirst>
       <IntlProvider locale={use_lang} key={use_lang} defaultLocale="en" messages={l10n_messages}>
         <SEO use_lang={use_lang} />
         <Layout use_lang={use_lang} setLocale={setLocale} langFont={langFont} setLangFont={setLangFont}>
           <Content langFont={langFont} isMobile={isMobile} />
-          <MissionaryModal langFont={langFont} isMobile={isMobile} />
+          <MissionaryModal langFont={langFont} isMobile={isMobile} openModalRef={openModalRef} />
         </Layout>
       </IntlProvider>
     </StylesProvider>

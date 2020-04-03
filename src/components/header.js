@@ -47,7 +47,7 @@ const Header = ({ use_lang, setLocale, langFont, setLangFont }) => {
           }    
           setTimeout(fadeIn, 1000, 0)
         }}
-          />
+      />
     </div>
   )
   

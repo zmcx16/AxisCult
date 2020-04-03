@@ -1,7 +1,7 @@
 {
-  "name": "AxisCult-Dev",
-  "description": "AxisCult-Dev",
-  "version": "0.1.0",
+  "name": "AxisCult",
+  "description": "AxisCult",
+  "version": "1.0.0",
   "author": "zmcx16 <zmcx16@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.9.1",
