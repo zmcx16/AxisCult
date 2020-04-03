@@ -12,11 +12,37 @@
 
 .footContainer{
   position: absolute;
-  bottom: 200px;
-  width: 300px;
+  bottom: 80px;
+  width: 500px;
   letter-spacing: 1px;
   text-shadow: -1px 0 #f0f3f8, 0 1px #f0f3f8, 1px 0 #f0f3f8, 0 -1px #f5f5f1;
   color: royalblue;
   left: 50%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  line-height: 26px;
+}
+
+@mixin grid {
+  display: grid;
+
+  text-align: center;
+  margin-bottom: 15px;  
+}
+
+.links1{
+  @include grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.links2{
+  @include grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.notice{
+  display: block;
 }
