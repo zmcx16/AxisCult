@@ -1,0 +1,21 @@
+.title{
+  display: grid;
+  grid-template-columns: 32px auto 32px;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;  
+  margin: 0 10px;
+}
+
+.titleText{
+  word-wrap: break-word;
+  word-break: keep-all;
+  line-height: 40px;
+}
+
+.sheet{
+  display: block;
+  width: calc(100% - 100px);
+  margin: auto;
+  margin-bottom: 20px;
+}

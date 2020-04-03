@@ -1,8 +1,3 @@
-
-// thumbnail size: 64x64
-// desktop: 12x6
-// mobile: 6x6
-
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"

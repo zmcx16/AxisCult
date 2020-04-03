@@ -7,9 +7,9 @@ import IntroAxis from "../components/introAxis"
 import IntroAqua from "../components/introAqua"
 import KaoGei from "../components/kaoGei"
 import CardQA from "../components/cardQA"
+import AdaptiveTesting from "../components/adaptiveTesting"
 import IntroCreed from "../components/introCreed"
 import MissionaryLoli from "../components/missionaryLoli"
-//import Survey from "../components/survey"
 
 import contentStyle from "./content.module.scss"
 
@@ -43,6 +43,9 @@ const Content = ({langFont, isMobile}) => {
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
         <CardQA langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+      </div>
+      <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
+        <AdaptiveTesting langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
         <IntroCreed langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />

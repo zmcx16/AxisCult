@@ -16,7 +16,8 @@ $card-height: 340px;
   grid-template-columns: repeat(auto-fit, $card-width);
   grid-gap: 50px;
   height: auto;
-  margin: 20px 0;
+  margin-top: 20px;
+  margin-bottom: 30px;
   /* justify-items: center; */
   /* align-items: center; */
   justify-content: center;

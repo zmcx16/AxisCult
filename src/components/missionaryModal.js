@@ -38,9 +38,9 @@ export default function MissionaryModal({ langFont, isMobile }) {
   })
 
   const [open, setOpen] = React.useState(false)
-  var enableClose = React.useRef(false)
+  const enableClose = React.useRef(false)
 
-  var enableMissionary = React.useRef(false)
+  const enableMissionary = React.useRef(false)
 
   const handleOpen = () => {
     if (enableMissionary.current){
