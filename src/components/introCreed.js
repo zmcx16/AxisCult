@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import IntroImage from "./introImage"
 
 import introCreedStyle from "./introCreed.module.scss"
 
-function IntroCreed({ langFont, isMobile, axisBadgeImage }) {
+function IntroCreed({ langFont, axisBadgeImage }) {
 
   const introImgs = [
     {
@@ -45,17 +46,29 @@ function IntroCreed({ langFont, isMobile, axisBadgeImage }) {
     }
   ]
 
-  const introImgConfig = {
-    imgPos: isMobile ? 'centerMobileImg' : 'centerWithFullText',
-    textStyle: isMobile ? 'imgFullTextMobile' : 'imgFullText',
-    interval: 9000,
-    transitionsConfig: {
-      from: { opacity: 1, transform: 'translate3d(99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
-      enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
-      leave: { opacity: 1, transform: 'translate3d(-99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
-      config: { duration: 800 }
+  const [imageNode, setImageNode] = useState()
+
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    setImageNode(<IntroImage langFont={langFont} introImgs={introImgs}
+      introImgConfig={{
+        imgPos: isMobile ? 'centerMobileImg' : 'centerWithFullText',
+        textStyle: isMobile ? 'imgFullTextMobile' : 'imgFullText',
+        interval: 9000,
+        transitionsConfig: {
+          from: { opacity: 1, transform: 'translate3d(99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+          enter: { opacity: 1, transform: 'translate3d(0%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+          leave: { opacity: 1, transform: 'translate3d(-99%,0,0)', width: '100%', height: '100%', position: 'absolute' },
+          config: { duration: 800 }
+        }
+      }}
+    />)
+
+    return () => {
+      // componentWillUnmount is here!
     }
-  }
+  }, [isMobile])
 
   return (
     <>
@@ -64,8 +77,8 @@ function IntroCreed({ langFont, isMobile, axisBadgeImage }) {
         <h2> 阿克西斯教 教義 </h2>
         {axisBadgeImage}
       </div>
-          <div className={introCreedStyle.imgContainer}>
-        <IntroImage langFont={langFont} introImgs={introImgs} introImgConfig={introImgConfig} isMobile={isMobile}/>
+      <div className={introCreedStyle.imgContainer}>
+        {imageNode}
       </div>
     </>
   )

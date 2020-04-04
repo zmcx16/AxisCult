@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Modal from '@material-ui/core/Modal'
@@ -10,10 +10,13 @@ import Button from '@material-ui/core/Button';
 import { FormattedMessage } from "react-intl"
 import GifPlayer from "react-gif-player"
 
+import { isMobile } from 'react-device-detect'
+
 import missionaryModalStyle from "./missionaryModal.module.scss"
+import "./missionaryModal-gif.css"
 
 
-export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
+export default function MissionaryModal({ langFont, openModalRef }) {
 
   const data = useStaticQuery(graphql`
     query {
@@ -62,28 +65,32 @@ export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
 
   // options function
   // join axis cult
-  const joinAxisNow = () =>{
+  const joinAxisNow = useCallback(() =>{
     openModalRef.current.openModal = null
     
     const party = data.images.edges.find(n => {
       return n.node.relativePath.includes('party.jpg')
     })
 
+    var fSize = ''
+    if (isMobile)
+      fSize = 'x-large'
+
     setModalPageStyle(missionaryModalStyle.story)
     setModalContent(
     <>
       <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
       <div className={missionaryModalStyle.storyCenterTextField}>
-        <h1 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>歡迎加入世界上最喜歡宴會和祭典的阿克西斯教</h1>
-        <h1 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>把腦袋的螺絲轉鬆一起黑皮黑皮吧!!!</h1>
+        <h1 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>歡迎加入世界上最喜歡宴會和祭典的阿克西斯教</h1>
+        <h1 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>把腦袋的螺絲轉鬆一起黑皮黑皮吧!!!</h1>
       </div>
     </>)
 
     enableClose.current = true
-  }
+  }, [isMobile])
 
   // axis believer
-  const isAxisBeliever = () =>{
+  const isAxisBeliever = useCallback(() =>{
     openModalRef.current.openModal = null
 
     const party = data.images.edges.find(n => {
@@ -105,10 +112,10 @@ export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
     </>)
 
     enableClose.current = true
-  }
+  }, [isMobile])
 
   // do missionary
-  const doMissionary = () =>{
+  const doMissionary = useCallback(() =>{
     console.log('doMissionary')
     enableClose.current = false
 
@@ -129,10 +136,14 @@ export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
       return n.node.relativePath.includes(pick.image)
     })
 
+    var fSize = ''
+    if (isMobile)
+      fSize = 'large'
+
     var missionaryText = []
     for (let i = 0; i < pick.text.length; i++) {
 
-      const textHtml = (<h2 key={i} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>{pick.text[i]}</h2>)
+      const textHtml = (<h2 style={{ fontSize: fSize }} key={i} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>{pick.text[i]}</h2>)
       missionaryText.push(textHtml)
     }
 
@@ -160,7 +171,7 @@ export default function MissionaryModal({ langFont, isMobile, openModalRef }) {
           </MuiThemeProvider>
         </div>
       </>)
-  }
+  }, [isMobile])
 
   // Eris believer
   const isErisBeliever = () => {

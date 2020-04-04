@@ -11,7 +11,7 @@ import { FormattedMessage } from "react-intl"
 
 import cardQAStyle from "./cardQA.module.scss"
 
-function CardQA({ langFont, isMobile, axisBadgeImage }) {
+function CardQA({ langFont, axisBadgeImage }) {
 
   const cardContent = [
     {

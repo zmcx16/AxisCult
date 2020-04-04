@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import { isMobile } from 'react-device-detect'
 
 import kaoGeiStyle from "./kaoGei.module.scss"
 
@@ -50,7 +51,7 @@ for (let i = 1; i <= kaoGeiImgTotal; i++) {
 shuffle(kaoGeiImgs)
 // -------------------------------------
 
-function KaoGei({ langFont, isMobile, axisBadgeImage }) {
+function KaoGei({ langFont, axisBadgeImage }) {
 
   const data = useStaticQuery(graphql`
     query {
@@ -84,31 +85,44 @@ function KaoGei({ langFont, isMobile, axisBadgeImage }) {
     }
   `)  
 
-  var kaoGeiImgCount = 72
-  var imagesStyle = kaoGeiStyle.grid
-  if (isMobile) {
-    kaoGeiImgCount = 36
-    imagesStyle = kaoGeiStyle.gridMobile
-  }
+  const [introImgNodes, setIntroImgNodes] = useState()
+  const [imagesStyle, setImagesStyle] = useState(kaoGeiStyle.grid)
 
-  var introImgNodes = []
-  for (let i = 0; i < kaoGeiImgCount; i++) {
-    const thumbnailNode = data.thumbnailImages.edges.find(n => {
-      return n.node.relativePath.includes(kaoGeiImgs[i].thumbnail)
-    })
-    
-    introImgNodes.push(
-    <div key={kaoGeiImgs[i].id} onClick={() => {
-      const sourceNode = data.sourceImages.edges.find(n => {
-        return n.node.relativePath.includes(kaoGeiImgs[i].source)
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+
+    var kaoGeiImgCount = 72
+    if (isMobile) {
+      kaoGeiImgCount = 36
+      setImagesStyle(kaoGeiStyle.gridMobile)
+    }
+
+    var introImgNodesTemp = []
+    for (let i = 0; i < kaoGeiImgCount; i++) {
+      const thumbnailNode = data.thumbnailImages.edges.find(n => {
+        return n.node.relativePath.includes(kaoGeiImgs[i].thumbnail)
       })
-      setModalImage(<Img fluid={sourceNode.node.childImageSharp.fluid} fadeIn={false}/>)
-      setModalOpen(true)
-    }}>
-      <Img fixed={thumbnailNode.node.childImageSharp.fixed} fadeIn={false} className={kaoGeiStyle.thumbnail}/>
-    </div>
-    )
-  }
+
+      introImgNodesTemp.push(
+        <div key={kaoGeiImgs[i].id} onClick={() => {
+          const sourceNode = data.sourceImages.edges.find(n => {
+            return n.node.relativePath.includes(kaoGeiImgs[i].source)
+          })
+          setModalImage(<Img fluid={sourceNode.node.childImageSharp.fluid} fadeIn={false} />)
+          setModalOpen(true)
+        }}>
+          <Img fixed={thumbnailNode.node.childImageSharp.fixed} fadeIn={false} className={kaoGeiStyle.thumbnail} />
+        </div>
+      )
+    }
+
+    setIntroImgNodes(introImgNodesTemp)
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [isMobile])
 
   // Modal
   const modalStyle = useModalStyles();

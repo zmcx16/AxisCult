@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { config } from 'react-spring'
+import { isMobile } from 'react-device-detect'
 
 import IntroImage from "./introImage"
 
 import introBaseStyle from "./introBase.module.scss"
 
-function IntroAqua({ langFont, isMobile }) {
+function IntroAqua({ langFont }) {
 
   const introImgs = [
     {
@@ -26,17 +27,28 @@ function IntroAqua({ langFont, isMobile }) {
     }
   ]
 
-  const introImgConfig = {
-    imgPos: isMobile ? 'centerMobileImg': 'right',
-    textStyle: isMobile ? 'imgCaptionMobile' : 'imgCaption',
-    interval: 7000,
-    transitionsConfig: {
-      from: { opacity: 1 },
-      enter: { opacity: 1 },
-      leave: { opacity: 0 },
-      config: { duration: 600 }
+  const [imageNode, setImageNode] = useState()
+
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    setImageNode(<IntroImage langFont={langFont} introImgs={introImgs} 
+      introImgConfig={{
+        imgPos: !isMobile ? 'right' : 'centerMobileImg',
+        textStyle: !isMobile ? 'imgCaption' : 'imgCaptionMobile',
+        interval: 7000,
+        transitionsConfig: {
+          from: { opacity: 1 },
+          enter: { opacity: 1 },
+          leave: { opacity: 0 },
+          config: { duration: 600 }
+      }}
+    } />)
+
+    return () => {
+      // componentWillUnmount is here!
     }
-  }
+  }, [isMobile])
 
   return (
     <>
@@ -48,7 +60,7 @@ function IntroAqua({ langFont, isMobile }) {
         <button onClick={() => {
         }}>test</button>
       </div>
-      <IntroImage langFont={langFont} introImgs={introImgs} introImgConfig={introImgConfig}/>
+      {imageNode}
     </>
   )
 }

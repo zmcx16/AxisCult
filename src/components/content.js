@@ -13,7 +13,7 @@ import MissionaryLoli from "../components/missionaryLoli"
 
 import contentStyle from "./content.module.scss"
 
-const Content = ({langFont, isMobile}) => {
+const Content = ({langFont}) => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -33,25 +33,25 @@ const Content = ({langFont, isMobile}) => {
     <div className={contentStyle.contentContainer}>
       <Marquee text_id={'marquee.text1'} langFont={langFont} />
       <div className={contentStyle.section + ' ' + contentStyle.sectionLR}>
-        <IntroAxis langFont={langFont} isMobile={isMobile}/>
+        <IntroAxis langFont={langFont} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionLR}>
-        <IntroAqua langFont={langFont} isMobile={isMobile} />
+        <IntroAqua langFont={langFont} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <KaoGei langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+        <KaoGei langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <CardQA langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+        <CardQA langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <AdaptiveTesting langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+        <AdaptiveTesting langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <IntroCreed langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+        <IntroCreed langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
-        <MissionaryLoli langFont={langFont} isMobile={isMobile} axisBadgeImage={axisBadgeImage} />
+        <MissionaryLoli langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <Marquee text_id={'marquee.text2'} langFont={langFont} />
     </div>

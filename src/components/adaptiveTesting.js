@@ -9,7 +9,7 @@ import AtReport from "./atReport"
 
 import adaptiveTestingStyle from "./adaptiveTesting.module.scss"
 
-function AdaptiveTesting({ langFont, isMobile, axisBadgeImage }) {
+function AdaptiveTesting({ langFont, axisBadgeImage }) {
 
   const questions = [{
       initScore: 6,

@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl"
 
 import missionaryLoliStyle from "./missionaryLoli.module.scss"
 
-function MissionaryLoli({ langFont, isMobile, axisBadgeImage }) {
+function MissionaryLoli({ langFont, axisBadgeImage }) {
 
   const data = useStaticQuery(graphql`
     query {

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
@@ -7,8 +7,22 @@ import footerStyle from "./footer.module.scss"
 
 const Footer = ({langFont}) => {
 
+  const useProgressiveImage = (src, placeholder) => {
+    const [sourceLoaded, setSourceLoaded] = useState(null)
+
+    useEffect(() => {
+      const img = new Image()
+      img.src = src
+      img.onload = () => setSourceLoaded(src)
+    }, [src])
+
+    return [sourceLoaded, placeholder]
+  }
+
+  const [loaded, placeholder] = useProgressiveImage(require("../images/mosaicAqua.jpg"), require("../images/axis-icon.png"))
+
   return (
-    <div className={footerStyle.kanbanContainer} style={{ backgroundSize: 'cover', backgroundPosition: 'center center', backgroundAttachment: 'fixed', backgroundImage: 'url(' + require("../images/mosaicAqua.jpg") + ')' }}>
+    <div className={footerStyle.kanbanContainer} style={{ backgroundImage: `url(${loaded || placeholder})`, backgroundSize: 'cover', backgroundPosition: 'center center', backgroundAttachment: 'fixed' }}>
       <footer className={footerStyle.footContainer}>
         <div className={footerStyle.links1}>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png">AQUA IMAGE</a>
