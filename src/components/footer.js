@@ -26,6 +26,7 @@ const Footer = ({langFont}) => {
       fluid={data.placeholderImage.childImageSharp.fluid}
       fadeIn={false}
       loading={'eager'}
+      style={{ backgroundSize: 'cover', backgroundPosition: 'center center', backgroundAttachment: 'fixed' }}
     >
       <footer className={footerStyle.footContainer}>
         <div className={footerStyle.links1}>
