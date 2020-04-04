@@ -16,13 +16,14 @@ function AtReport({ getReportCallback, axisBadgeImage }) {
     const baseScore = 5 // 10 * 5 = 50
 
     var scoreIcons = []
-      for (let i = 0; i < sum; i+=baseScore) {
-      scoreIcons.push(<div key={i}>{axisBadgeImage}</div>)
+    let saturate = (sum-10) / 5
+    for (let i = 0; i < sum; i+=baseScore) {
+      scoreIcons.push(<div key={i} style={{ filter: `saturate(${saturate})`}}>{axisBadgeImage}</div>)
     }
 
     var finalIcons = []
-      for (let i = 0; i < 10; i++) {
-      finalIcons.push(<div key={i}>{axisBadgeImage}</div>)
+    for (let i = 0; i < 30; i++) { // full
+      finalIcons.push(<div key={i} style={{filter: 'saturate(10)'}}>{axisBadgeImage}</div>)
     }
 
     setReport(

@@ -46,7 +46,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
       return n.node.relativePath.includes(introImgs[i].imgFileName)
     })
     
-    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={textStyle === 'imgFullTextMobile' || textStyle === 'imgFullTextMobile' ? introBaseStyle.imgBlockWithOpacity : introBaseStyle.imgBlock} key={i} fadeIn={false} />)
+    const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} className={textStyle === 'imgFullTextMobile' || textStyle === 'imgFullTextMobile' ? introBaseStyle.imgBlockWithOpacity : introBaseStyle.imgBlock} key={i} fadeIn={false} loading={'eager'} />)
     const imgTextObj = (<span className={textStyle + ' ' + langFont}><FormattedMessage id={introImgs[i].textKey} /></span>)
     
     introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgTextObj}</animated.div>)

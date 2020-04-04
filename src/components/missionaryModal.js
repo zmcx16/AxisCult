@@ -79,7 +79,7 @@ export default function MissionaryModal({ langFont, openModalRef }) {
     setModalPageStyle(missionaryModalStyle.story)
     setModalContent(
     <>
-      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} loading={'eager'}/>
       <div className={missionaryModalStyle.storyCenterTextField}>
         <h1 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>歡迎加入世界上最喜歡宴會和祭典的阿克西斯教</h1>
         <h1 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}>把腦袋的螺絲轉鬆一起黑皮黑皮吧!!!</h1>
@@ -104,7 +104,7 @@ export default function MissionaryModal({ langFont, openModalRef }) {
     setModalPageStyle(missionaryModalStyle.story)
     setModalContent(
     <>
-      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+      <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} loading={'eager'}/>
       <div className={missionaryModalStyle.storyCenterTextField}>
         <h2 style={{ fontSize: fSize }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text1" /><FormattedMessage id="missionary.believer.text2" /></h2>
         <h2 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text3" /></h2>
@@ -150,7 +150,7 @@ export default function MissionaryModal({ langFont, openModalRef }) {
     setModalPageStyle(missionaryModalStyle.story)
     setModalContent(
       <>
-        <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} />
+        <Img fluid={party.node.childImageSharp.fluid} fadeIn={false} loading={'eager'}/>
         <div className={missionaryModalStyle.storyCenterTextField}>
           {missionaryText}
         </div>
@@ -211,7 +211,7 @@ export default function MissionaryModal({ langFont, openModalRef }) {
 
   const [modalContent, setModalContent] = useState(
     <>
-      <Img fluid={applicationForm.node.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} fadeIn={false}/>
+      <Img fluid={applicationForm.node.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} fadeIn={false} loading={'eager'}/>
       <div className={missionaryModalStyle.paperTextField}>
         <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>你覺得阿克西斯教如何?</h3>
         <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}>心動了嗎? 一定心動了吧!</h3>

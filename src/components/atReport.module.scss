@@ -20,6 +20,8 @@
   position: relative;
   text-align: center;
   align-items: center;
+  grid-auto-flow: column;
+  overflow: hidden;
 }
 
 .scoreHeader{

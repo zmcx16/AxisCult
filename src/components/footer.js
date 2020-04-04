@@ -2,27 +2,31 @@ import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
+import BackgroundImage from 'gatsby-background-image'
 
 import footerStyle from "./footer.module.scss"
 
 const Footer = ({langFont}) => {
 
-  const useProgressiveImage = (src, placeholder) => {
-    const [sourceLoaded, setSourceLoaded] = useState(null)
-
-    useEffect(() => {
-      const img = new Image()
-      img.src = src
-      img.onload = () => setSourceLoaded(src)
-    }, [src])
-
-    return [sourceLoaded, placeholder]
-  }
-
-  const [loaded, placeholder] = useProgressiveImage(require("../images/mosaicAqua.jpg"), require("../images/axis-icon.png"))
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "mosaicAqua.jpg" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
   return (
-    <div className={footerStyle.kanbanContainer} style={{ backgroundImage: `url(${loaded || placeholder})`, backgroundSize: 'cover', backgroundPosition: 'center center', backgroundAttachment: 'fixed' }}>
+    <BackgroundImage
+      className={footerStyle.kanbanContainer}
+      fluid={data.placeholderImage.childImageSharp.fluid}
+      fadeIn={false}
+      loading={'eager'}
+    >
       <footer className={footerStyle.footContainer}>
         <div className={footerStyle.links1}>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png">AQUA IMAGE</a>
@@ -38,7 +42,7 @@ const Footer = ({langFont}) => {
           <div>關於網站素材的使用以及相關權利的細節部分, 請參考 <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/README.md">README</a></div>
         </div>
       </footer>
-    </div>
+    </BackgroundImage>
   )
   
 }
