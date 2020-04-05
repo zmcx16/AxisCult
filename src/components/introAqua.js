@@ -64,7 +64,7 @@ function IntroAqua({ langFont, axisBadgeImage }) {
         </div>
         <div className={introBaseStyle.textFooter} style={{ textAlign: 'right' }}>
           <h2><b>尼采曾說過:「上帝已死, 但阿克婭女神還在!」</b></h2>
-          <h2><b>快加入我大阿克西斯教信奉阿克婭女神吧!!!</b></h2>
+          <h2><b>快加入阿克西斯教信奉阿克婭女神吧!!!</b></h2>
         </div>
       </div>
       {imageNode}

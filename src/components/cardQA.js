@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useSprings, animated } from 'react-spring'
-import { FormattedMessage } from "react-intl"
+import { FormattedHTMLMessage } from "react-intl"
 
 import cardQAStyle from "./cardQA.module.scss"
 
@@ -16,23 +16,23 @@ function CardQA({ langFont, axisBadgeImage }) {
   const cardContent = [
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua.caption1",
-      backContentKey: "introAqua.caption2"
+      frontContentKey: "cardQA.front1.text",
+      backContentKey: "cardQA.back1.text"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua.caption2",
-      backContentKey: "introAqua.caption3"
+      frontContentKey: "cardQA.front2.text",
+      backContentKey: "cardQA.back2.text"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua.caption3",
-      backContentKey: "introAqua.caption4"
+      frontContentKey: "cardQA.front3.text",
+      backContentKey: "cardQA.back3.text"
     },
     {
       imgFileName: "card1.jpg",
-      frontContentKey: "introAqua.caption1",
-      backContentKey: "introAqua.caption2"
+      frontContentKey: "cardQA.front4.text",
+      backContentKey: "cardQA.back4.text"
     }
   ]
 
@@ -77,9 +77,9 @@ function CardQA({ langFont, axisBadgeImage }) {
     })
 
     const cardFrontImgObj = (<Img fluid={frontImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
-    const cardFrontContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedMessage id={cardContent[i].frontContentKey} /></span>)
+    const cardFrontContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedHTMLMessage id={cardContent[i].frontContentKey} /></span>)
     const cardBackImgObj = (<Img fluid={backImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
-    const cardBackContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedMessage id={cardContent[i].backContentKey} /></span>)
+    const cardBackContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedHTMLMessage id={cardContent[i].backContentKey} /></span>)
 
     cardNodes.push(
       <div className={cardQAStyle.cardContainer} onClick={() => {
@@ -98,7 +98,7 @@ function CardQA({ langFont, axisBadgeImage }) {
     <>
       <div className={cardQAStyle.title}>
         {axisBadgeImage}
-        <h2> 阿克西斯教 問與答專欄 </h2>
+        <h2> 加入阿克西斯教吧 問與答專欄 </h2>
         {axisBadgeImage}
       </div>
       <div className={cardQAStyle.grid}>

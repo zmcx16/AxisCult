@@ -58,4 +58,9 @@ $card-height: 340px;
 .cardText{
   z-index: 10;
   padding: 0 5px;
+  line-height: 26px;
+  /* word-break: initial; */
+  word-wrap: break-word;
+  font-size: larger;
+  font-weight: initial;
 }
