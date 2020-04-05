@@ -10,10 +10,9 @@
   display: flex;
 }
 
-.footContainer{
+@mixin footContainerBase{
   position: absolute;
   bottom: 80px;
-  width: 500px;
   letter-spacing: 1px;
   text-shadow: -1px 0 #f0f3f8, 0 1px #f0f3f8, 1px 0 #f0f3f8, 0 -1px #f5f5f1;
   color: royalblue;
@@ -21,16 +20,28 @@
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
   border-radius: 15px;
+}
+
+.footContainer{
+  @include footContainerBase;
+  width: 500px;
+  padding: 20px;
   line-height: 26px;
 }
 
+.footContainerMobile{
+  @include footContainerBase;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 5px;
+  line-height: 20px;
+}
+
+
 @mixin grid {
   display: grid;
-
-  text-align: center;
-  margin-bottom: 15px;  
+  text-align: center; 
 }
 
 .links1{

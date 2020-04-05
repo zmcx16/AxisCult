@@ -107,14 +107,23 @@
   bottom: 0;
 }
 
-.missionButtonContainer{
+@mixin missionButtonContainerBase{
   position: absolute;
-  bottom: 15px;
   display: grid;
-  bottom: 15px;
   justify-content: center;
-  grid-template-columns: 15px 3fr 1fr 15px;
   width: 100%;
+}
+
+.missionButtonContainer{
+  @include missionButtonContainerBase;
+  bottom: 15px;
+  grid-template-columns: 15px 3fr 1fr 15px;
   gap: 30px;
 }
 
+.missionButtonContainerMobile{
+  @include missionButtonContainerBase;
+  bottom: 5px;
+  grid-template-columns: 0px 2fr 1fr 0px;
+  gap: 5px;
+}

@@ -68,7 +68,7 @@ function IntroCreed({ langFont, axisBadgeImage }) {
     return () => {
       // componentWillUnmount is here!
     }
-  }, [isMobile])
+  }, [])
 
   return (
     <>

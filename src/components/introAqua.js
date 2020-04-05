@@ -48,7 +48,7 @@ function IntroAqua({ langFont }) {
     return () => {
       // componentWillUnmount is here!
     }
-  }, [isMobile])
+  }, [])
 
   return (
     <>

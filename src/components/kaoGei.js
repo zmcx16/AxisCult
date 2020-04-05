@@ -122,7 +122,7 @@ function KaoGei({ langFont, axisBadgeImage }) {
     return () => {
       // componentWillUnmount is here!
     }
-  }, [isMobile])
+  }, [])
 
   // Modal
   const modalStyle = useModalStyles();

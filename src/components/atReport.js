@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { FormattedMessage } from "react-intl"
+import { isMobile } from 'react-device-detect'
 
 import atReportStyle from "./atReport.module.scss"
 
@@ -8,16 +9,19 @@ function AtReport({ getReportCallback, axisBadgeImage }) {
   const [report, setReport] = useState()
 
   getReportCallback.current = (elements) => {
+
+    console.log(elements)
+
     let sum = 0
     for (let i = 0; i < elements.length; i++) {
       sum += elements[i]
     }
 
-    const baseScore = 5 // 10 * 5 = 50
+    let avg = sum / elements.length
 
     var scoreIcons = []
-    let saturate = (sum-10) / 5
-    for (let i = 0; i < sum; i+=baseScore) {
+    let saturate = avg / 20               // (0~5)
+    for (let i = 0; i < avg / (isMobile ? 20 : 10); i++) {  // 0 ~ 10 incons (mobile: 0 ~ 5)
       scoreIcons.push(<div key={i} style={{ filter: `saturate(${saturate})`}}>{axisBadgeImage}</div>)
     }
 
