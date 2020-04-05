@@ -6,7 +6,7 @@ import IntroImage from "./introImage"
 
 import introBaseStyle from "./introBase.module.scss"
 
-function IntroAqua({ langFont }) {
+function IntroAqua({ langFont, axisBadgeImage }) {
 
   const introImgs = [
     {
@@ -52,13 +52,20 @@ function IntroAqua({ langFont }) {
 
   return (
     <>
-      <div className={introBaseStyle.leftText}>
-        <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
-            <p><br />are you ever do some evil ... or have xxx.</p>
-        <h2><b>Join the Axis Cult today!!</b></h2>
-	    	<span>ya</span>
-        <button onClick={() => {
-        }}>test</button>
+      <div className={introBaseStyle.leftText} style={{ display: isMobile ? 'none' : 'block' }}>
+        <div className={introBaseStyle.textHeader} style={{ justifyContent: 'right' }}>
+          {axisBadgeImage}<h2><b>我們信仰之神: 水之女神阿克婭</b></h2>{axisBadgeImage}
+        </div>
+        <div style={{display: 'grid', justifyContent: 'right' }}>
+          <h2>關於阿克婭女神的豆知識:</h2>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>多才多藝 - 花鳥風月滿級</h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>得意料理是美乃滋鮪魚飯</h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>一言以蔽之就是 萌萌噠 萌萌噠 萌萌噠!!!</h3></div>
+        </div>
+        <div className={introBaseStyle.textFooter} style={{ textAlign: 'right' }}>
+          <h2><b>尼采曾說過:「上帝已死, 但阿克婭女神還在!」</b></h2>
+          <h2><b>快加入我大阿克西斯教信奉阿克婭女神吧!!!</b></h2>
+        </div>
       </div>
       {imageNode}
     </>

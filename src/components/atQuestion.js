@@ -27,7 +27,7 @@ function AtQuestion({ config, axisBadgeImage, scoreRef }) {
               scoreRef.current = i
             }
           }}>
-        <div style={{opacity: i===score ? .8 : .3}}>{axisBadgeImage}</div>
+        <div style={{ opacity: i === score ? .8 : .3, filter: i === score ? 'saturate(5)' : 'none'}}>{axisBadgeImage}</div>
       </div>)
     )
   }

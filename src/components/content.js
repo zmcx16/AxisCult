@@ -27,16 +27,16 @@ const Content = ({langFont}) => {
     }
   `)
 
-  const axisBadgeImage = (<Img fixed={data.placeholderImage.childImageSharp.fixed}/>)
+  const axisBadgeImage = (<div style={{ filter: 'saturate(3)'}}><Img fixed={data.placeholderImage.childImageSharp.fixed}/></div>)
 
   return (
     <div className={contentStyle.contentContainer}>
       <Marquee text_id={'marquee.text1'} langFont={langFont} />
       <div className={contentStyle.section + ' ' + contentStyle.sectionLR}>
-        <IntroAxis langFont={langFont} />
+        <IntroAxis langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionLR}>
-        <IntroAqua langFont={langFont} />
+        <IntroAqua langFont={langFont} axisBadgeImage={axisBadgeImage} />
       </div>
       <div className={contentStyle.section + ' ' + contentStyle.sectionCenter}>
         <KaoGei langFont={langFont} axisBadgeImage={axisBadgeImage} />

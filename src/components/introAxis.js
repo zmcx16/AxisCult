@@ -5,7 +5,7 @@ import IntroImage from "./introImage"
 
 import introBaseStyle from "./introBase.module.scss"
 
-function IntroAxis({ langFont }) {
+function IntroAxis({ langFont, axisBadgeImage }) {
 
   const introImgs = [
     {
@@ -53,13 +53,19 @@ function IntroAxis({ langFont }) {
   return (
     <>
       {imageNode}
-      <div className={introBaseStyle.rightText}>
-        <h2><b>Congratulation!! This is a best oppuraunity to become a devoted Axis believer.</b></h2>
-            <p><br />are you ever do some evil ... or have xxx.</p>
-        <h2><b>Join the Axis Cult today!!</b></h2>
-	    	<span>ya</span>
-        <button onClick={() => {
-        }}>test</button>
+      <div className={introBaseStyle.rightText} style={{ display: isMobile ? 'none' : 'block'}}>
+        <div className={introBaseStyle.textHeader} style={{ justifyContent: 'left'}} >
+          {axisBadgeImage}<h2><b>加入阿克西斯教改變你悲慘的人生吧!</b></h2>{axisBadgeImage}
+        </div>
+        <div>
+          <h2>只要成為阿克西斯教徒, 就能立刻享有以下加護:</h2>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>不再壓抑自我, 樂於享受人生</h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>想讓世界變美好的心靈以及行動力</h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>討厭的人直接遠離你</h3></div>
+        </div>
+        <div className={introBaseStyle.textFooter} style={{ textAlign: 'left' }}>
+          <h2><b>想要無拘無束享受未來快樂的人生嗎?  快加入阿克西斯教吧!</b></h2>
+        </div>
       </div>
     </>
   )
