@@ -61,6 +61,7 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
 
       questionNodeTemp.push(<AtQuestion
         key={i}
+        langFont={langFont}
         config={{
           size: isMobile ? 6 : 11,
           minScore: isMobile ? parseInt(questions[i].minScore / 2) : questions[i].minScore,
@@ -84,7 +85,7 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
 
     let scores = []
     for(let i=0; i<scoresRef.current.length; i++){
-      scores.push(scoresRef.current[i].current * 100 / (isMobile ? 6 : 11))
+      scores.push(scoresRef.current[i].current * 100 / (isMobile ? 5 : 10))
     }
     getReportCallback.current(scores)
 
@@ -94,7 +95,7 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
     <>
       <div className={adaptiveTestingStyle.title}>
         {axisBadgeImage}
-        <div className={adaptiveTestingStyle.titleText} style={{ wordBreak: isMobile ? '': 'keep-all'}}><h2> 想知道阿克西斯教適不適合自己嗎? 下面的適性測驗可以測試你跟阿克西斯教的速配指數!</h2></div>
+        <div className={adaptiveTestingStyle.titleText} style={{ wordBreak: isMobile ? '' : 'keep-all' }}><h2 className={langFont}><FormattedMessage id={'adaptiveTesting.title'} /></h2></div>
         {axisBadgeImage}
       </div>
       <div className={adaptiveTestingStyle.sheet}>
@@ -102,10 +103,10 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
       </div>
       <div className={adaptiveTestingStyle.buttonContainer}>
         <MuiThemeProvider theme={createMuiTheme({ palette: { secondary: blue } })}>
-          <Button variant="contained" color="secondary" onClick={getResult}>測驗結果</Button>
+          <Button variant="contained" color="secondary" onClick={getResult}><span className={langFont}><FormattedMessage id={'adaptiveTesting.reportButton'} /></span></Button>
         </MuiThemeProvider>
       </div>
-      <AtReport getReportCallback={getReportCallback} axisBadgeImage={axisBadgeImage}/>
+      <AtReport langFont={langFont} getReportCallback={getReportCallback} axisBadgeImage={axisBadgeImage}/>
     </>
   )
 }

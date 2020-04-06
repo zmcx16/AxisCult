@@ -15,22 +15,18 @@ function CardQA({ langFont, axisBadgeImage }) {
 
   const cardContent = [
     {
-      imgFileName: "card1.jpg",
       frontContentKey: "cardQA.front1.text",
       backContentKey: "cardQA.back1.text"
     },
     {
-      imgFileName: "card1.jpg",
       frontContentKey: "cardQA.front2.text",
       backContentKey: "cardQA.back2.text"
     },
     {
-      imgFileName: "card1.jpg",
       frontContentKey: "cardQA.front3.text",
       backContentKey: "cardQA.back3.text"
     },
     {
-      imgFileName: "card1.jpg",
       frontContentKey: "cardQA.front4.text",
       backContentKey: "cardQA.back4.text"
     }
@@ -38,21 +34,24 @@ function CardQA({ langFont, axisBadgeImage }) {
 
   const data = useStaticQuery(graphql`
     query {
-      images: allFile{
-        edges {
-          node {
-            relativePath
-            name
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
+      cardFront: file(relativePath: { eq: "axis-icon.png" }) {
+        childImageSharp {
+          fluid{
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+
+      cardBack: file(relativePath: { eq: "AquaHoly.jpg" }) {
+        childImageSharp {
+          fluid{
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
+
 
   const [flipped, setFlipped] = useState(Array(cardContent.length).fill(false))
   const flippedSpring = useSprings(cardContent.length, flipped.map(item =>({ 
@@ -68,17 +67,9 @@ function CardQA({ langFont, axisBadgeImage }) {
     let transform = flippedSpring[i].transform
     let opacity = flippedSpring[i].opacity
 
-    const frontImgNode = data.images.edges.find(n => {
-      return n.node.relativePath.includes('axis-icon.png')
-    })
-
-    const backImgNode = data.images.edges.find(n => {
-      return n.node.relativePath.includes(cardContent[i].imgFileName)
-    })
-
-    const cardFrontImgObj = (<Img fluid={frontImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
+    const cardFrontImgObj = (<Img fluid={data.cardFront.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
     const cardFrontContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedHTMLMessage id={cardContent[i].frontContentKey} /></span>)
-    const cardBackImgObj = (<Img fluid={backImgNode.node.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
+    const cardBackImgObj = (<Img fluid={data.cardBack.childImageSharp.fluid} className={cardQAStyle.cardImg} fadeIn={false} style={{ position: "fixed" }} />)
     const cardBackContentObj = (<span className={langFont + ' ' + cardQAStyle.cardText}><FormattedHTMLMessage id={cardContent[i].backContentKey} /></span>)
 
     cardNodes.push(
