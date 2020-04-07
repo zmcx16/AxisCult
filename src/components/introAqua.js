@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { config } from 'react-spring'
 import { isMobile } from 'react-device-detect'
+import { FormattedMessage } from "react-intl"
 
 import IntroImage from "./introImage"
 
@@ -54,17 +54,17 @@ function IntroAqua({ langFont, axisBadgeImage }) {
     <>
       <div className={introBaseStyle.leftText} style={{ display: isMobile ? 'none' : 'block' }}>
         <div className={introBaseStyle.textHeader} style={{ justifyContent: 'right' }}>
-          {axisBadgeImage}<h2><b>我們信仰之神: 水之女神阿克婭</b></h2>{axisBadgeImage}
+          {axisBadgeImage}<h2 className={langFont}><b><FormattedMessage id="introAqua.header" /></b></h2>{axisBadgeImage}
         </div>
         <div style={{display: 'grid', justifyContent: 'right' }}>
-          <h2>關於阿克婭女神的豆知識:</h2>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>多才多藝 - 花鳥風月滿級</h3></div>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>得意料理是美乃滋鮪魚飯</h3></div>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>一言以蔽之就是 萌萌噠 萌萌噠 萌萌噠!!!</h3></div>
+          <h2 className={langFont}><FormattedMessage id="introAqua.title" /></h2>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAqua.subTitle1" /></h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAqua.subTitle2" /></h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAqua.subTitle3" /></h3></div>
         </div>
         <div className={introBaseStyle.textFooter} style={{ textAlign: 'right' }}>
-          <h2><b>尼采曾說過:「上帝已死, 但阿克婭女神還在!」</b></h2>
-          <h2><b>快加入阿克西斯教信奉阿克婭女神吧!!!</b></h2>
+          <h2 className={langFont}><b><FormattedMessage id="introAqua.footerText1" /></b></h2>
+          <h2 className={langFont}><b><FormattedMessage id="introAqua.footerText2" /></b></h2>
         </div>
       </div>
       {imageNode}

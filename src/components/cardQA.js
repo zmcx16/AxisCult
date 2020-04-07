@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useSprings, animated } from 'react-spring'
-import { FormattedHTMLMessage } from "react-intl"
+import { FormattedMessage, FormattedHTMLMessage } from "react-intl"
 
 import cardQAStyle from "./cardQA.module.scss"
 
@@ -89,7 +89,7 @@ function CardQA({ langFont, axisBadgeImage }) {
     <>
       <div className={cardQAStyle.title}>
         {axisBadgeImage}
-        <h2> 加入阿克西斯教吧 問與答專欄 </h2>
+        <h2 className={langFont}><FormattedMessage id={'cardQA.title'} /> </h2>
         {axisBadgeImage}
       </div>
       <div className={cardQAStyle.grid}>

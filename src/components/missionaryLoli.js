@@ -23,7 +23,7 @@ function MissionaryLoli({ langFont, axisBadgeImage }) {
     <>
       <div className={missionaryLoliStyle.title}>
         {axisBadgeImage}
-        <h2> 都看到這裡了還等什麼? 快加入阿克西斯教吧!!! </h2>
+        <h2 className={langFont}><FormattedMessage id="missionaryLoli.header" /></h2>
         {axisBadgeImage}
       </div>
       <Img fluid={data.images.childImageSharp.fluid} className={missionaryLoliStyle.centerImg} loading={'eager'}/>

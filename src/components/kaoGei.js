@@ -11,6 +11,7 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import { isMobile } from 'react-device-detect'
+import { FormattedMessage } from "react-intl"
 
 import kaoGeiStyle from "./kaoGei.module.scss"
 
@@ -137,7 +138,7 @@ function KaoGei({ langFont, axisBadgeImage }) {
     <>
       <div className={kaoGeiStyle.title}>
         {axisBadgeImage}
-        <h2> 想更進一步認識阿克婭女神嗎? 點擊下面的圖片吧!!! </h2>
+        <h2 className={langFont}><FormattedMessage id="kaoGei.header" /></h2>
         {axisBadgeImage}
       </div>
       <div className={imagesStyle}>

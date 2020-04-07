@@ -116,7 +116,7 @@
 
 .missionButtonContainer{
   @include missionButtonContainerBase;
-  bottom: 15px;
+  bottom: 30px;
   grid-template-columns: 15px 3fr 1fr 15px;
   gap: 30px;
 }

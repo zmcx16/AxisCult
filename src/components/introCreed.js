@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { isMobile } from 'react-device-detect'
+import { FormattedMessage } from "react-intl"
 
 import IntroImage from "./introImage"
 
@@ -13,35 +14,35 @@ function IntroCreed({ langFont, axisBadgeImage }) {
       textKey: "introCreed.text1"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed2.jpg",
       textKey: "introCreed.text2"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed3.jpg",
       textKey: "introCreed.text3"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed4.jpg",
       textKey: "introCreed.text4"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed5.jpg",
       textKey: "introCreed.text5"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed6.jpg",
       textKey: "introCreed.text6"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed7.jpg",
       textKey: "introCreed.text7"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed8.jpg",
       textKey: "introCreed.text8"
     },
     {
-      imgFileName: "introCreed1.jpg",
+      imgFileName: "introCreed9.jpg",
       textKey: "introCreed.text9"
     }
   ]
@@ -74,7 +75,7 @@ function IntroCreed({ langFont, axisBadgeImage }) {
     <>
       <div className={introCreedStyle.title}>
         {axisBadgeImage}
-        <h2> 阿克西斯教 教義 </h2>
+        <h2 className={langFont}><FormattedMessage id="introCreed.header" /></h2>
         {axisBadgeImage}
       </div>
       <div className={introCreedStyle.imgContainer}>

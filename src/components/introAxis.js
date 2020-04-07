@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { isMobile } from 'react-device-detect'
+import { FormattedMessage } from "react-intl"
 
 import IntroImage from "./introImage"
 
@@ -49,22 +50,22 @@ function IntroAxis({ langFont, axisBadgeImage }) {
       // componentWillUnmount is here!
     }
   }, [])
-
+  
   return (
     <>
       {imageNode}
       <div className={introBaseStyle.rightText} style={{ display: isMobile ? 'none' : 'block'}}>
         <div className={introBaseStyle.textHeader} style={{ justifyContent: 'left'}} >
-          {axisBadgeImage}<h2><b>加入阿克西斯教改變你悲慘的人生吧!</b></h2>{axisBadgeImage}
+          {axisBadgeImage}<h2 className={langFont}><b><FormattedMessage id="introAxis.header" /></b></h2>{axisBadgeImage}
         </div>
         <div>
-          <h2>只要成為阿克西斯教徒, 就能立刻享有以下加護:</h2>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>不再壓抑自我, 樂於享受人生</h3></div>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>想讓世界變美好的心靈以及行動力</h3></div>
-          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3>討厭的人直接遠離你</h3></div>
+          <h2 className={langFont}><FormattedMessage id="introAxis.title" /></h2>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAxis.subTitle1" /></h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAxis.subTitle2" /></h3></div>
+          <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAxis.subTitle3" /></h3></div>
         </div>
         <div className={introBaseStyle.textFooter} style={{ textAlign: 'left' }}>
-          <h2><b>想要無拘無束享受未來快樂的人生嗎?  快加入阿克西斯教吧!</b></h2>
+          <h2 className={langFont}><b><FormattedMessage id="introAxis.footerText" /></b></h2>
         </div>
       </div>
     </>

@@ -63,14 +63,11 @@ const IndexPage = () => {
     // componentDidMount is here!
     // componentDidUpdate is here!
     const detect_scroll_interval = setInterval(function () {
-      //console.log(window.scrollY)
-      //console.log(window.document.body.offsetHeight)
       let nowPos = window.scrollY
       let totalHeight = window.document.body.offsetHeight
       if (openModalRef.current.openModal !== null 
         && ((nowPos >= totalHeight * .8 && openModalRef.current.start === false) 
             || openModalRef.current.doMissionary === true)){
-        console.log(window.scrollY)
         openModalRef.current.start = true
         openModalRef.current.openModal()
       }

@@ -23,6 +23,7 @@ const BootstrapInput = withStyles(theme => ({
     minWidth: 120,
     fontSize: 16,
     padding: '10px 26px 10px 12px',
+    marginBottom: '20px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
       borderRadius: 4,

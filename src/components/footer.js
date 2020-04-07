@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import { FormattedMessage } from "react-intl"
 import BackgroundImage from 'gatsby-background-image'
 import { isMobile } from 'react-device-detect'
@@ -31,17 +30,17 @@ const Footer = ({langFont}) => {
     >
       <footer className={isMobile ? footerStyle.footContainerMobile : footerStyle.footContainer}>
         <div className={footerStyle.links1} style={{ marginBottom: isMobile ? '10px' : '15px' }}>
-          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png">AQUA IMAGE</a>
-          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/mosaicAqua-org.jpg">AQUA IMAGE (mosaic)</a>
+          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png"><span className={langFont}><FormattedMessage id="footer.aquaImage.text" /></span></a>
+          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/mosaicAqua-org.jpg"><span className={langFont}><FormattedMessage id="footer.aquaImageMosaic.text" /></span></a>
         </div>
         <div className={footerStyle.links2} style={{ marginBottom: isMobile ? '10px' : '15px' }}>
-          <a target="_blank" href="https://github.com/zmcx16/AxisCult">AxisCutl Github</a>
-          <a target="_blank" href="https://project.zmcx16.moe/">zmcx16's side projects</a>
-          <a target="_blank" href="https://blog.zmcx16.moe/">zmcx16's Blog</a>
+          <a target="_blank" href="https://github.com/zmcx16/AxisCult"><span className={langFont}><FormattedMessage id="footer.github" /></span></a>
+          <a target="_blank" href="https://project.zmcx16.moe/"><span className={langFont}><FormattedMessage id="footer.sideProjects" /></span></a>
+          <a target="_blank" href="https://blog.zmcx16.moe/"><span className={langFont}><FormattedMessage id="footer.blog" /></span></a>
         </div>
         <div className={footerStyle.notice}>
-          <div style={{ marginBottom: '5px' }}>這個網站是為了介紹和推廣"為了美好世界獻上祝福"系列作品以及為了將阿克西斯教的美妙傳到世界各地所製作, 網站大多數素材皆來自"為了美好世界獻上祝福"第一、二季動畫並為美好世界製作委員會所有, 禁止將該網站素材作非法或營利使用。</div>
-          <div>關於網站素材的使用以及相關權利的細節部分, 請參考 <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/README.md">README</a></div>
+          <div className={langFont} style={{ marginBottom: '5px' }}><FormattedMessage id="footer.notice.text1" /></div>
+          <div className={langFont}><FormattedMessage id="footer.notice.text2" /><a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/README.md"><span className={langFont}><FormattedMessage id="footer.readme" /></span></a></div>
         </div>
       </footer>
     </BackgroundImage>
