@@ -45,6 +45,8 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
     }
   ]
 
+  const [wordBreakStyle, setWordBreakStyle] = useState('keep-all')
+
   const [questionNode, setQuestionNode] = useState([])
   const scoresRef = useRef([])
   useEffect(() => {
@@ -74,6 +76,10 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
 
     setQuestionNode(questionNodeTemp)
 
+    if(isMobile){
+      setWordBreakStyle('')
+    }
+
     return () => {
       // componentWillUnmount is here!
     }
@@ -95,7 +101,7 @@ function AdaptiveTesting({ langFont, axisBadgeImage }) {
     <>
       <div className={adaptiveTestingStyle.title}>
         {axisBadgeImage}
-        <div className={adaptiveTestingStyle.titleText} style={{ wordBreak: isMobile ? '' : 'keep-all' }}><h2 className={langFont}><FormattedMessage id={'adaptiveTesting.title'} /></h2></div>
+        <div className={adaptiveTestingStyle.titleText} style={{ wordBreak: wordBreakStyle }}><h2 className={langFont}><FormattedMessage id={'adaptiveTesting.title'} /></h2></div>
         {axisBadgeImage}
       </div>
       <div className={adaptiveTestingStyle.sheet}>

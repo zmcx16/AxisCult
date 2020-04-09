@@ -11,23 +11,28 @@ function IntroAqua({ langFont, axisBadgeImage }) {
   const introImgs = [
     {
       imgFileName: "introAqua1.jpg",
-      textKey: "introAqua.caption1"
+      textKey: "introAqua.caption1",
+      mobileImgObjectPosition: '30%'
     },
     {
       imgFileName: "introAqua2.jpg",
-      textKey: "introAqua.caption2"
+      textKey: "introAqua.caption2",
+      mobileImgObjectPosition: '45%'
     },
     {
       imgFileName: "introAqua3.jpg",
-      textKey: "introAqua.caption3"
+      textKey: "introAqua.caption3",
+      mobileImgObjectPosition: '55%'
     },
     {
       imgFileName: "introAqua4.jpg",
-      textKey: "introAqua.caption4"
+      textKey: "introAqua.caption4",
+      mobileImgObjectPosition: 'center center'
     }
   ]
 
   const [imageNode, setImageNode] = useState()
+  const [textDisplay, setTextDisplay] = useState('block')
 
   useEffect(() => {
     // componentDidMount is here!
@@ -45,6 +50,10 @@ function IntroAqua({ langFont, axisBadgeImage }) {
       }}
     } />)
 
+    if(isMobile){
+      setTextDisplay('none')
+    }
+
     return () => {
       // componentWillUnmount is here!
     }
@@ -52,7 +61,7 @@ function IntroAqua({ langFont, axisBadgeImage }) {
 
   return (
     <>
-      <div className={introBaseStyle.leftText} style={{ display: isMobile ? 'none' : 'block' }}>
+      <div className={introBaseStyle.leftText} style={{ display: textDisplay }}>
         <div className={introBaseStyle.textHeader} style={{ justifyContent: 'right' }}>
           {axisBadgeImage}<h2 className={langFont}><b><FormattedMessage id="introAqua.header" /></b></h2>{axisBadgeImage}
         </div>

@@ -41,7 +41,17 @@
 
 @mixin grid {
   display: grid;
+  gap: 5px;
   text-align: center; 
+}
+
+
+.footLink{
+  margin-bottom: 15px;
+}
+
+.footLinkMoblie{
+  margin-bottom: 10px;
 }
 
 .links1{

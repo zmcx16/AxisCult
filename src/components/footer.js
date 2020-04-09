@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { FormattedMessage } from "react-intl"
 import BackgroundImage from 'gatsby-background-image'
@@ -20,6 +20,23 @@ const Footer = ({langFont}) => {
     }
   `)
 
+  const [footContainerStyle, setFootContainerStyle] = useState(footerStyle.footContainer)
+  const [footLinkStyle, setFootLinkStyle] = useState(footerStyle.footLink)
+
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    if (isMobile){
+      setFootContainerStyle(footerStyle.footContainerMobile)
+      setFootLinkStyle(footerStyle.footLinkMoblie)
+    }
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [])
+
+
   return (
     <BackgroundImage
       className={footerStyle.kanbanContainer}
@@ -28,12 +45,12 @@ const Footer = ({langFont}) => {
       loading={'eager'}
       style={{ backgroundSize: 'cover', backgroundPosition: 'center center', backgroundAttachment: 'fixed' }}
     >
-      <footer className={isMobile ? footerStyle.footContainerMobile : footerStyle.footContainer}>
-        <div className={footerStyle.links1} style={{ marginBottom: isMobile ? '10px' : '15px' }}>
+      <footer className={footContainerStyle}>
+        <div className={footerStyle.links1 + ' ' + footLinkStyle}>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png"><span className={langFont}><FormattedMessage id="footer.aquaImage.text" /></span></a>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/mosaicAqua-org.jpg"><span className={langFont}><FormattedMessage id="footer.aquaImageMosaic.text" /></span></a>
         </div>
-        <div className={footerStyle.links2} style={{ marginBottom: isMobile ? '10px' : '15px' }}>
+        <div className={footerStyle.links2 + ' ' + footLinkStyle}>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult"><span className={langFont}><FormattedMessage id="footer.github" /></span></a>
           <a target="_blank" href="https://project.zmcx16.moe/"><span className={langFont}><FormattedMessage id="footer.sideProjects" /></span></a>
           <a target="_blank" href="https://blog.zmcx16.moe/"><span className={langFont}><FormattedMessage id="footer.blog" /></span></a>

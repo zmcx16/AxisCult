@@ -11,39 +11,48 @@ function IntroCreed({ langFont, axisBadgeImage }) {
   const introImgs = [
     {
       imgFileName: "introCreed1.jpg",
-      textKey: "introCreed.text1"
+      textKey: "introCreed.text1",
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed2.jpg",
-      textKey: "introCreed.text2"
+      textKey: "introCreed.text2",
+      mobileImgObjectPosition: '80%'
     },
     {
       imgFileName: "introCreed3.jpg",
-      textKey: "introCreed.text3"
+      textKey: "introCreed.text3",
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed4.jpg",
-      textKey: "introCreed.text4"
+      textKey: "introCreed.text4",
+      mobileImgObjectPosition: '70%'
     },
     {
       imgFileName: "introCreed5.jpg",
-      textKey: "introCreed.text5"
+      textKey: "introCreed.text5",
+      mobileImgObjectPosition: '90%'
     },
     {
       imgFileName: "introCreed6.jpg",
-      textKey: "introCreed.text6"
+      textKey: "introCreed.text6",
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed7.jpg",
-      textKey: "introCreed.text7"
+      textKey: "introCreed.text7",
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed8.jpg",
-      textKey: "introCreed.text8"
+      textKey: "introCreed.text8",
+      mobileImgObjectPosition: '5%'
     },
     {
       imgFileName: "introCreed9.jpg",
-      textKey: "introCreed.text9"
+      textKey: "introCreed.text9",
+      mobileImgObjectPosition: 'center center'
     }
   ]
 

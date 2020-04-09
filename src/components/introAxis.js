@@ -11,23 +11,28 @@ function IntroAxis({ langFont, axisBadgeImage }) {
   const introImgs = [
     {
       imgFileName: "introAxis1.jpg",
-      textKey: "introAxis.caption1"
+      textKey: "introAxis.caption1",
+      mobileImgObjectPosition: '55%'
     },
     {
       imgFileName: "introAxis2.jpg",
-      textKey: "introAxis.caption2"
+      textKey: "introAxis.caption2",
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introAxis3.jpg",
-      textKey: "introAxis.caption3"
+      textKey: "introAxis.caption3",
+      mobileImgObjectPosition: '30%'
     },
     {
       imgFileName: "introAxis4.jpg",
-      textKey: "introAxis.caption4"
+      textKey: "introAxis.caption4",
+      mobileImgObjectPosition: 'center center'
     }
   ]
 
   const [imageNode, setImageNode] = useState()
+  const [textDisplay, setTextDisplay] = useState('block')
 
   useEffect(() => {
     // componentDidMount is here!
@@ -46,6 +51,10 @@ function IntroAxis({ langFont, axisBadgeImage }) {
       }} 
     />)
 
+    if(isMobile){
+      setTextDisplay('none')
+    }
+
     return () => {
       // componentWillUnmount is here!
     }
@@ -54,7 +63,7 @@ function IntroAxis({ langFont, axisBadgeImage }) {
   return (
     <>
       {imageNode}
-      <div className={introBaseStyle.rightText} style={{ display: isMobile ? 'none' : 'block'}}>
+      <div className={introBaseStyle.rightText} style={{ display: textDisplay}}>
         <div className={introBaseStyle.textHeader} style={{ justifyContent: 'left'}} >
           {axisBadgeImage}<h2 className={langFont}><b><FormattedMessage id="introAxis.header" /></b></h2>{axisBadgeImage}
         </div>

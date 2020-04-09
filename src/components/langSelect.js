@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import InputBase from '@material-ui/core/InputBase'
 import { FormattedMessage } from "react-intl"
+import { isMobile } from 'react-device-detect'
 
 import layoutStyle from "./layout.module.scss"
 import langSelectStyle from "./langSelect.module.scss"
@@ -23,7 +24,6 @@ const BootstrapInput = withStyles(theme => ({
     minWidth: 120,
     fontSize: 16,
     padding: '10px 26px 10px 12px',
-    marginBottom: '20px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     '&:focus': {
       borderRadius: 4,
@@ -34,16 +34,11 @@ const BootstrapInput = withStyles(theme => ({
   },
 }))(InputBase)
 
-const useStyles = makeStyles(theme => ({
-  margin: {
-    margin: '0 0 30px 20px'
-  },
-}))
+
 
 var langTipNoNeedShow = false
 
 export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}) {
-  const selectClasses = useStyles();
 
   var default_lang = 'en'
   if (use_lang.includes('zh')) {
@@ -53,7 +48,7 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
     default_lang = 'isekai'
   } 
 
-  const [lang, setLang] = useState(default_lang);
+  const [lang, setLang] = useState(default_lang)
   const handleSelectChange = event => {
 
     langTipNoNeedShow = true
@@ -83,6 +78,8 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
     setLangTipDisplay(false)
   }
 
+  const [langStyle, setLangStyle] = useState(langSelectStyle.formControl);
+
   useEffect(() => {
     // componentDidMount is here!
     // componentDidUpdate is here!
@@ -96,6 +93,10 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
 
     if (langTipNoNeedShow){
       setLangTipDisplay(false)
+    }
+
+    if (isMobile){
+      setLangStyle(langSelectStyle.formControlMobile)
     }
 
     return () => {
@@ -113,7 +114,7 @@ export default function LangSelect({ use_lang, setLocale, langFont, setLangFont}
         </span>
         <div className={langSelectStyle.closeBtn} onClick={handleClose}>x</div>
       </div>
-      <FormControl className={selectClasses.margin}>
+      <FormControl className={langStyle}>
         <InputLabel htmlFor="lang-select"></InputLabel>
         <NativeSelect
           id="lang-select"
