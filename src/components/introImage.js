@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { FormattedMessage } from "react-intl"
+import { FormattedHTMLMessage } from "react-intl"
 import { useTransition, animated } from 'react-spring'
 
 import { isPageVisibility } from '../common/utils'
@@ -52,7 +52,7 @@ function IntroImage({ langFont, introImgs, introImgConfig}) {
     }
 
     const imgObj = (<Img fluid={imgNode.node.childImageSharp.fluid} imgStyle={{objectPosition: imgObjectPositionStyle}} className={textStyle === 'imgFullTextMobile' ? introBaseStyle.imgBlockWithOpacity : introBaseStyle.imgBlock} key={i} fadeIn={false} loading={'eager'} />)
-    const imgTextObj = (<span className={textStyle + ' ' + langFont}><FormattedMessage id={introImgs[i].textKey} /></span>)
+    const imgTextObj = (<span className={textStyle + ' ' + langFont}><FormattedHTMLMessage id={introImgs[i].textKey} /></span>)
     
     introImgNodes.push(({ style }) => <animated.div style={{ ...style }}>{imgObj}{imgTextObj}</animated.div>)
   }

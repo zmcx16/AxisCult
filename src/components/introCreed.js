@@ -22,22 +22,22 @@ function IntroCreed({ langFont, axisBadgeImage }) {
     {
       imgFileName: "introCreed3.jpg",
       textKey: "introCreed.text3",
-      mobileImgObjectPosition: 'center center'
+      mobileImgObjectPosition: '90%'
     },
     {
       imgFileName: "introCreed4.jpg",
       textKey: "introCreed.text4",
-      mobileImgObjectPosition: '70%'
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed5.jpg",
       textKey: "introCreed.text5",
-      mobileImgObjectPosition: '90%'
+      mobileImgObjectPosition: '70%'
     },
     {
       imgFileName: "introCreed6.jpg",
       textKey: "introCreed.text6",
-      mobileImgObjectPosition: 'center center'
+      mobileImgObjectPosition: '90%'
     },
     {
       imgFileName: "introCreed7.jpg",
@@ -47,11 +47,16 @@ function IntroCreed({ langFont, axisBadgeImage }) {
     {
       imgFileName: "introCreed8.jpg",
       textKey: "introCreed.text8",
-      mobileImgObjectPosition: '5%'
+      mobileImgObjectPosition: 'center center'
     },
     {
       imgFileName: "introCreed9.jpg",
       textKey: "introCreed.text9",
+      mobileImgObjectPosition: '5%'
+    },
+    {
+      imgFileName: "introCreed10.jpg",
+      textKey: "introCreed.text10",
       mobileImgObjectPosition: 'center center'
     }
   ]
