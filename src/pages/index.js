@@ -10,7 +10,7 @@ import MissionaryModal from "../components/missionaryModal"
 
 import en from '../i18n/en.js'
 import zh_tw from '../i18n/zh-tw.js'
-import isekai from '../i18n/isekai.js'
+import isekai from '../i18n/en.js'
 
 import layoutStyle from "../components/layout.module.scss"
 

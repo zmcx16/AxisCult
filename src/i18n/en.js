@@ -5,8 +5,8 @@ const en = {
 
   'langSelectTips.text1': `Click here to switch the language to view the website.`,
   'langSelectTips.text2': `We also support the language of the fantasy world!`,
-  'marquee.text1': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
-  'marquee.text2': `join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!! join Axis Cult now !!!`,
+  'marquee.text1': `JOIN AXIS CULT NOW!!! You can get the edible soap and drinkable detergent and double points if you join the AXIS FAITH! You also can get the pants of beauty Eris believer if you invite three people to join the AXIS FAITH!!!`,
+  'marquee.text2': `AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT AXIS CULT`,
   'alcanretia.text': `Alcanretia`,
   'axisCult.text': `Axis Cult`,
   'header.text1': `Welcome, lost lamb`,
