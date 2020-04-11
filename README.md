@@ -5,6 +5,7 @@ https://axiscult.zmcx16.moe/
 
 # Why Axis Cult?
   Join Axis Cult to change your miserable life!
+  
   Become an Axis Believer, you will receive the following blessing:
   *  Get a brand new life
   *  Want to make the world a better place
@@ -15,6 +16,7 @@ JOIN AXIS CULT NOW !
 
 # Goddess Aqua 
   Our Faith: Goddess of water Aqua
+  
   Trivia about Goddess Aqua:
   *  Versatile - Nature's Beauty full level
   *  Specialty dish is Tuna-Mayo rice
