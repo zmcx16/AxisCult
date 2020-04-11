@@ -1,4 +1,7 @@
 # AxisCult
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/db3cf1aa1ef54485b7cb8f29a31bf125)](https://app.codacy.com/manual/zmcx16/AxisCult?utm_source=github.com&utm_medium=referral&utm_content=zmcx16/AxisCult&utm_campaign=Badge_Grade_Settings)
+
 https://axiscult.zmcx16.moe/
 
 ![image](https://i.imgur.com/F8DeG8e.jpg)
