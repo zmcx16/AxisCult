@@ -107,8 +107,7 @@
 
 .leftText{
   @include textBase;
-  width: calc(50% - 80px);
-  padding-left: 10px;
+  width: calc(50% - 50px);
   left: 0;
 }
 
@@ -116,14 +115,12 @@
   @include textBase;
   width: calc(50% - 80px);
   left: 50%;
-  padding-left: 50px;
+  padding-left: 30px;
 }
 
 @mixin imgCaptionBase{
   position: absolute;
   text-align: center;
-  left: 100px;
-  right: 100px;
   bottom: 50px;
   background: rgba(255,255,255,0.7);
   border-radius: 5px;
@@ -131,11 +128,15 @@
 
 .imgCaption{
   @include imgCaptionBase;
+  left: 100px;
+  right: 100px;
   line-height: 26px;
 }
 
 .imgCaptionMobile{
   @include imgCaptionBase;
+  left: 30px;
+  right: 30px;
   font-size: 24px;
   line-height: 36px;
 }

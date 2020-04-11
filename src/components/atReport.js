@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { FormattedMessage, FormattedHTMLMessage} from "react-intl"
 import { isMobile } from 'react-device-detect'
 
@@ -41,7 +41,7 @@ function AtReport({ langFont, getReportCallback, axisBadgeImage }) {
         {scoreIcons}
       </div>
       <div className={atReportStyle.score}>
-        <div className={atReportStyle.scoreHeader}><h4 className={langFont}><FormattedMessage id={'adaptiveTesting.report.fitnessText'} /></h4></div>
+        <div className={atReportStyle.scoreHeader}><h4 className={langFont}><FormattedMessage id={'adaptiveTesting.report.suitabilityText'} /></h4></div>
         {finalIcons}
       </div>
       <div className={atReportStyle.comment}>

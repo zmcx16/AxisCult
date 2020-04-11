@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Modal from '@material-ui/core/Modal'
@@ -63,6 +63,18 @@ export default function MissionaryModal({ langFont, openModalRef }) {
   
   const [modalPageStyle, setModalPageStyle] = useState(missionaryModalStyle.paper)
 
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    if (isMobile) {
+      setModalPageStyle(missionaryModalStyle.paperMobile)
+    }
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [])
+
   // options function
   // join axis cult
   const joinAxisNow = () =>{
@@ -99,7 +111,7 @@ export default function MissionaryModal({ langFont, openModalRef }) {
       <Img fluid={imageNode.node.childImageSharp.fluid} fadeIn={false} loading={'eager'}/>
       <div className={missionaryModalStyle.storyCenterTextField}>
         <h2 style={{ fontSize: isMobile ? 'xx-small' : '' }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text1" /><FormattedMessage id="missionary.believer.text2" /></h2>
-        <h2 style={{ fontSize: isMobile ? 'large' : '' }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text3" /></h2>
+        <h2 style={{ fontSize: isMobile ? 'small' : '' }} className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.believer.text3" /></h2>
       </div>
     </>)
 
@@ -228,9 +240,9 @@ export default function MissionaryModal({ langFont, openModalRef }) {
     <>
       <Img fluid={applicationForm.node.childImageSharp.fluid} className={missionaryModalStyle.applicationFormImg} fadeIn={false} loading={'eager'}/>
       <div className={missionaryModalStyle.paperTextField}>
-        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.applicationFormText1" /></h3>
-        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.applicationFormText2" /></h3>
-        <h3 className={langFont + ' ' + missionaryModalStyle.paperTextLine}><FormattedMessage id="missionary.applicationFormText3" /></h3>
+        <h3 className={langFont}><FormattedMessage id="missionary.applicationFormText1" /></h3>
+        <h3 className={langFont}><FormattedMessage id="missionary.applicationFormText2" /></h3>
+        <h3 className={langFont}><FormattedMessage id="missionary.applicationFormText3" /></h3>
       </div>
       <div className={missionaryModalStyle.optionContainerCenter}>
         <div onClick={joinAxisNow}><h4 className={langFont + ' ' + missionaryModalStyle.optionText} ><FormattedMessage id="missionary.applicationFormOption1" /></h4></div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState} from 'react'
 import { FormattedMessage } from "react-intl"
 
 import atQuestionStyle from "./atQuestion.module.scss"

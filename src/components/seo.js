@@ -68,6 +68,10 @@ function SEO({ lang }) {
           content: title,
         },
         {
+          property: `og:image`,
+          content: `https://i.imgur.com/F8DeG8e.jpg`,
+        },
+        {
           property: `og:description`,
           content: description,
         },

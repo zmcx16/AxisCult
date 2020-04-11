@@ -47,8 +47,8 @@ const Footer = ({langFont}) => {
     >
       <footer className={footContainerStyle}>
         <div className={footerStyle.links1 + ' ' + footLinkStyle}>
-          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png"><span className={langFont}><FormattedMessage id="footer.aquaImage.text" /></span></a>
-          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/mosaicAqua-org.jpg"><span className={langFont}><FormattedMessage id="footer.aquaImageMosaic.text" /></span></a>
+          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/Aqua-org.png?raw=true"><span className={langFont}><FormattedMessage id="footer.aquaImage.text" /></span></a>
+          <a target="_blank" href="https://github.com/zmcx16/AxisCult/blob/master/demo/mosaicAqua-org.jpg?raw=true"><span className={langFont}><FormattedMessage id="footer.aquaImageMosaic.text" /></span></a>
         </div>
         <div className={footerStyle.links2 + ' ' + footLinkStyle}>
           <a target="_blank" href="https://github.com/zmcx16/AxisCult"><span className={langFont}><FormattedMessage id="footer.github" /></span></a>

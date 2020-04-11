@@ -74,7 +74,8 @@ function IntroAxis({ langFont, axisBadgeImage }) {
           <div className={introBaseStyle.subTitle}>{axisBadgeImage}<h3 className={langFont}><FormattedMessage id="introAxis.subTitle3" /></h3></div>
         </div>
         <div className={introBaseStyle.textFooter} style={{ textAlign: 'left' }}>
-          <h2 className={langFont}><b><FormattedMessage id="introAxis.footerText" /></b></h2>
+          <h2 className={langFont}><b><FormattedMessage id="introAxis.footerText1" /></b></h2>
+          <h2 className={langFont}><b><FormattedMessage id="introAxis.footerText2" /></b></h2>
         </div>
       </div>
     </>

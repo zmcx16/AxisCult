@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { IntlProvider, FormattedMessage } from "react-intl"
+import { IntlProvider } from "react-intl"
 import { StylesProvider } from "@material-ui/core/styles"
 
 import Common from "../common/common"
@@ -10,7 +10,7 @@ import MissionaryModal from "../components/missionaryModal"
 
 import en from '../i18n/en.js'
 import zh_tw from '../i18n/zh-tw.js'
-import isekai from '../i18n/en.js'
+import isekai from '../i18n/isekai.js'
 
 import layoutStyle from "../components/layout.module.scss"
 
