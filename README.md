@@ -12,6 +12,7 @@ https://axiscult.zmcx16.moe/
   *  The nasty people stay away from you
 
 Want to enjoy the future of happy life?
+
 JOIN AXIS CULT NOW !
 
 # Goddess Aqua 
@@ -23,6 +24,7 @@ JOIN AXIS CULT NOW !
   *  To put it in a nutshell, MOE MOE MOE!!!
 
 Nietzsche said: "God is dead, but Goddess Aqua remains!"
+
 JOIN AXIS CULT AND FAITH IN GODDESS AQUA NOW !
 
 # Axis Creeds
