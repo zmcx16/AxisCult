@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { FormattedMessage } from "react-intl"
 
 import atQuestionStyle from "./atQuestion.module.scss"
@@ -32,13 +32,28 @@ function AtQuestion({ langFont, config, axisBadgeImage, scoreRef }) {
     )
   }
 
+  const [question, setQuestion] = useState()
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    setQuestion(
+      <>
+        <div className={atQuestionStyle.questionText}><h4 className={langFont}><FormattedMessage id={config.questionID} /></h4></div>
+        <div className={atQuestionStyle.header}>
+          <div className={langFont}><FormattedMessage id={config.headerStartID} /></div>
+          <div className={langFont} style={{ textAlign: 'right' }}><FormattedMessage id={config.headerEndID} /></div>
+        </div>
+      </>
+    )
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [])
+
   return (
     <div className={atQuestionStyle.question}>
-      <div className={atQuestionStyle.questionText}><h4 className={langFont}><FormattedMessage id={config.questionID} /></h4></div>
-      <div className={atQuestionStyle.header}>
-        <div className={langFont}><FormattedMessage id={config.headerStartID} /></div>
-        <div className={langFont} style={{textAlign: 'right'}}><FormattedMessage id={config.headerEndID} /></div>
-      </div>
+      {question}
       <div className={atQuestionStyle.blockContainer} style={{ gridTemplateColumns: 'repeat(' + config.size + ', 1fr)'}}>
         {blocks}
       </div>

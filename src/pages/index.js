@@ -55,7 +55,23 @@ const IndexPage = () => {
 
   const [locale, setLocale] = useState(language)
   const [use_lang, l10n_messages] = getLang(locale)
-  const [langFont, setLangFont] = useState( use_lang.includes('isekai') ? layoutStyle.isekaiFont : layoutStyle.defaultFont)
+  const [langFont, setLangFont] = useState(use_lang.includes('isekai') ? layoutStyle.isekaiFontOrg : layoutStyle.defaultFont)
+
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    if (use_lang.includes('isekai')) { // force trigger even default use_lang == isekai, force render the subcomponent without useState
+      setLangFont(layoutStyle.isekaiFont)
+    }else{
+      setLangFont(layoutStyle.defaultFont)
+    }
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [])
+
+
 
   const openModalRef = useRef({doMissionary: false, openModal: null, start: false})
     

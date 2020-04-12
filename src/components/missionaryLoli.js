@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FormattedHTMLMessage } from "react-intl"
@@ -19,11 +19,23 @@ function MissionaryLoli({ langFont, axisBadgeImage }) {
     }
   `)
 
+  const [title, setTitle] = useState()
+
+  useEffect(() => {
+    // componentDidMount is here!
+    // componentDidUpdate is here!
+    setTitle(<h2 className={langFont}><FormattedHTMLMessage id="missionaryLoli.header" /></h2>)
+
+    return () => {
+      // componentWillUnmount is here!
+    }
+  }, [])
+
   return (
     <>
       <div className={missionaryLoliStyle.title}>
         {axisBadgeImage}
-        <h2 className={langFont}><FormattedHTMLMessage id="missionaryLoli.header" /></h2>
+        {title}
         {axisBadgeImage}
       </div>
       <Img fluid={data.images.childImageSharp.fluid} className={missionaryLoliStyle.centerImg} loading={'eager'}/>

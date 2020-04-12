@@ -7,9 +7,16 @@
   font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
 }
 
-.isekaiFont{
+@mixin isekai-font{
   font-family: 'Konosuba-ko';
   font-weight: bold;
+}
+.isekaiFontOrg{
+  @include isekai-font;
+}
+
+.isekaiFont{
+  @include isekai-font;
 }
 
 body{
