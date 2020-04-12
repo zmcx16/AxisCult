@@ -69,7 +69,7 @@ function SEO({ lang }) {
         },
         {
           property: `og:image`,
-          content: `https://i.imgur.com/F8DeG8e.jpg`,
+          content: `https://i.imgur.com/iQz1ujc.jpg`,
         },
         {
           property: `og:description`,
