@@ -4,7 +4,7 @@
 
 https://axiscult.zmcx16.moe/
 
-![image](https://i.imgur.com/F8DeG8e.jpg)
+![image](https://i.imgur.com/iQz1ujc.jpg)
 
 # Why Axis Cult?
   Join Axis Cult to change your miserable life!
